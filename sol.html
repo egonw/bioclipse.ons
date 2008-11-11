@@ -1,0 +1,267 @@
+<!--
+
+Copyright (c) 2008 : Rajarshi Guha <rajarshi.guha@gmail.com>
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+3. The name of the author may not be used to endorse or promote products
+   derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<html>
+<head>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", {packages:["barchart"]});
+google.setOnLoadCallback(makePage);
+      
+var anySolvent = false;
+
+function getSolvents() {
+    var query = new google.visualization.Query("http://spreadsheets.google.com/ccc?key=plwwufp30hfq0udnEmRD1aQ");
+    query.setQuery('select F');
+    query.send(handleGetSolvents);
+}
+
+function getSolutes() {
+    var query = new google.visualization.Query("http://spreadsheets.google.com/ccc?key=plwwufp30hfq0udnEmRD1aQ");
+    query.setQuery('select D');
+    query.send(handleGetSolutes);
+}
+
+function handleGetSolvents(response) {
+    if (response.isError()) {
+	document.getElementById('solventselect').innerHTML = '<i>Error getting solvents</i>';
+	return;
+    }
+
+    var data = response.getDataTable();
+    var uniqueSolvents = data.getDistinctValues(0);
+    
+    s = '<select name="solvent"><option value="any">any';
+    for (var i = 0; i < uniqueSolvents.length; i++) {
+	s += '<option value="'+uniqueSolvents[i]+'">'+uniqueSolvents[i];
+    }
+    s += '</select>';
+    document.getElementById('solventselect').innerHTML = s;
+}
+function handleGetSolutes(response) {
+    if (response.isError()) {
+	document.getElementById('soluteselect').innerHTML = '<i>Error getting solutes</i>';
+	return;
+    }
+
+    var data = response.getDataTable();
+    var uniqueSolvents = data.getDistinctValues(0);
+    
+    s = '<select name="solute"><option value="any">any';
+    for (var i = 0; i < uniqueSolvents.length; i++) {
+	s += '<option value="'+uniqueSolvents[i]+'">'+uniqueSolvents[i];
+    }
+    s += '</select>';
+    document.getElementById('soluteselect').innerHTML = s;
+}
+
+// Callback that creates and populates a data table, 
+// instantiates the pie chart, passes in the data and
+// draws it.
+function makePage() {
+    getSolvents();
+    getSolutes();
+}
+
+function doQuery() {
+    document.getElementById('chart_div').innerHTML = '';
+    anySolvent = false;
+
+    var form = document.getElementById('solForm');
+    var solvent = document.solForm.solvent;
+    var solute = document.solForm.solute;
+    var solMin = document.solForm.solmin;
+    var solMax = document.solForm.solmax;
+
+    solMin = parseFloat(solMin.value);
+    if (isNaN(solMin)) solMin = -999;
+
+    solMax = parseFloat(solMax.value);
+    if (isNaN(solMax)) solMax = 999;
+
+    solvent = solvent.options[solvent.selectedIndex].text;
+    solute = solute.options[solute.selectedIndex].text;
+
+    var solventClause = "";
+    var soluteClause = "";
+    if (solvent != 'any') {
+	solventClause = " F = '"+solvent+"' and ";
+    } 
+    if (solute != 'any') {
+	soluteClause = " D = '"+solute+"' and ";
+    }
+
+    // If we are selecting a specific solute then we make 
+    // a bar graph, other wise not
+    if (soluteClause != "") anySolvent = true;
+
+    // make the final query
+    var query = "select * from SolubilitiesSum where "+solventClause+soluteClause+" H > "+solMin+" and H < "+solMax;
+    //document.getElementById('debug').innerHTML = query;
+
+    // lets start the fun
+    var q = new google.visualization.Query("http://spreadsheets.google.com/ccc?key=plwwufp30hfq0udnEmRD1aQ");
+    q.setQuery(query);
+    q.send(handleQuery);
+
+    return;
+}
+
+function getMeanSol(dat) {
+    var mean = 0;
+    for (var i = 0; i < dat.getNumberOfRows(); i++) {
+	mean += dat.getValue(i,7);
+    }
+    mean = mean / dat.getNumberOfRows();
+    return mean;
+}
+
+function getStandardDeviation(dat) {
+    var mean = getMeanSol(dat);
+    var sd = 0;
+    for (var i = 0; i < dat.getNumberOfRows(); i++) {
+	sd += (dat.getValue(i,7) - mean)^2;
+    }    
+    sd = Math.sqrt(sd / dat.getNumberOfRows());
+    return sd;
+}
+function roundNumber(num, dec) {
+    var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
+    return result;
+}
+function handleQuery(response) {
+    if (response.isError()) {
+	document.getElementById('chart_div').innerHTML = '<i>Error getting solvents</i>';
+	return;
+    } 
+
+    var data = response.getDataTable();
+
+    var mean = getMeanSol(data);
+    var sd = getStandardDeviation(data);
+
+    if (anySolvent) {
+	var chartData = new google.visualization.DataTable();
+	chartData.addColumn('string', 'Solvent');
+	chartData.addColumn('number', 'Conc(M)');
+	chartData.addRows( data.getNumberOfRows() );
+	for (var i = 0; i < data.getNumberOfRows(); i++) {
+	    chartData.setValue(i, 0, data.getValue(i, 5));
+	    chartData.setValue(i, 1, data.getValue(i, 7));
+	}
+	var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        chart.draw(chartData, {width: 500, height: 300, is3D: false, title: 'Solubility by Solvent for '+data.getValue(0,3)});
+    }
+
+    var results = "";
+    results = "<h2>Got "+data.getNumberOfRows()+" hits (mean = "+roundNumber(mean,2)+", SD = "+roundNumber(sd,2)+")</h2>";
+    results += "<table>\
+<thead>\
+<tr>\
+<th>Serial</th>\
+<th>EXP</th><th>Sample</th><th>Ref</th>\
+<th>Solute</th><th>Solute SMILES</th>\
+<th>Solvent</th><th>Solvent SMILES</th>\
+<th>Conc (M)</th>\
+</tr>\
+</thead>\
+<tbody>";
+    for (var i = 0; i < data.getNumberOfRows(); i++) {
+	results += "<tr>";
+	results += "<td>"+(i+1)+"</td>";
+	results += "<td>"+data.getValue(i,0)+"</td>";
+	results += "<td>"+data.getValue(i,1)+"</td>";
+	results += "<td><a href='"+data.getValue(i,2)+"'>"+data.getValue(i,2)+"</a></td>";
+	results += "<td>"+data.getValue(i,3)+"</td>";
+	results += "<td><img src='http://www.chembiogrid.org/cheminfo/rest/depict/"+data.getValue(i,4).trim()+"' width=100 height=100/></td>";
+	results += "<td>"+data.getValue(i,5)+"</td>";
+	results += "<td>"+data.getValue(i,6)+"</td>";
+
+	if (data.getValue(i,7) < (mean-3*sd) || data.getValue(i,7) > (mean+3*sd)) {
+	    results += "<td class=\"outlier\">"+data.getValue(i,7)+"</td>";
+	} else {
+	    results += "<td>"+data.getValue(i,7)+"</td>";
+	}
+	results += "</tr>";
+    }
+    results += "</tbody></table";
+    document.getElementById('queryResult').innerHTML = results;
+    
+    
+}
+
+String.prototype.trim = function() {
+	return this.replace(/^\s+|\s+$/g,"");
+}
+
+</script>
+<style type="text/css">
+.outlier { color: red; }
+</style>
+</head>
+  <body>
+<h3>ONS Solubility Queries</h3>
+<div class="intro">
+A simple query form to search the solubility data generated by
+<a href="http://www.chemistry.drexel.edu/people/bradley/bradley.asp">J. C Bradley</a> and co-workers. The raw data is taken from the
+<a href="http://spreadsheets.google.com/ccc?key=plwwufp30hfq0udnEmRD1aQ&hl=en">Google Docs</a> and is part of the <a href="http://usefulchem.blogspot.com/">UsefulChem</a> project. (Doesn't work in IE. <a href="http://www.mozilla.com/en-US/firefox/">SWITCH!</a>).
+<p>
+The page currently highlights compounds whose measured solubility is greater than 3 standard deviations of the mean solubility for all compounds.  The calculation is performed based on the rows returned by the query. So it really only makes sense when one views the results for a single solvent, since I I don't think  it makes sense to perform the test over multiple solvents.
+
+</div>
+
+<p>
+<div>
+<form id="solForm" name="solForm" method="post" action='../dummy.php'>
+<table>
+<tr>
+<td>Solvent</td>
+<td id="solventselect"></td>
+</tr>
+<tr>
+<td>Solute</td>
+<td id="soluteselect"></td>
+</tr>
+<tr>
+<td>Solubility</td>
+<td><input type="text" name="solmin" />
+to
+<input type="text" name="solmax" />
+</td>
+<tr>
+<td colspan="2" align="center"><button type="button" onclick="doQuery();">Do Query</button></td>
+</tr>
+</table>
+</form>
+</div>
+<hr> 
+<div id="chart_div"></div>
+<div id="queryResult"></div>
+<div id="debug"></div>
+
+ </body>
+</html>
