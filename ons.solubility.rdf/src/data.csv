@@ -57,8 +57,7 @@ EXP,sample,ref,solute,solute SMILES,solvent,solvent SMILES,concentration (M),wik
 210,41,http://usefulchem.wikispaces.com/exp210,4-chlorophenylacetic acid,Clc1ccc(cc1)CC(=O)O ,Ethanol,OCC,2.09,UC
 208,37b,http://usefulchem.wikispaces.com/exp208,2-chloro-5-nitrobenzaldehyde,O=Cc1cc(ccc1Cl)[N+]([O-])=O,Toluene,c1ccccc1C,2.00,UC
 210,36,http://usefulchem.wikispaces.com/exp210,4-Pyrenebutanoic acid,O=C(O)CCCc4cc2cccc1ccc3c(c12)c4ccc3,Ethanol,OCC,1.88,UC
-208,15b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl isocyanide, 	 
-O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Acetonitrile,N#CC,1.88,UC
+208,15b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl isocyanide, 	 O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Acetonitrile,N#CC,1.88,UC
 208,5b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl isocyanide,O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],THF,O1CCCC1,1.86,UC
 2,2,http://onschallenge.wikispaces.com/JennyHale-2,citric acid monohydrate,O=C(O)CC(O)(C(=O)O)CC(=O)O,Ethanol,OCC,1.78,ONS
 208,25b,http://usefulchem.wikispaces.com/exp208,4-hydroxybenzaldehyde,O=Cc1ccc(O)cc1,Chloroform,ClC(Cl)Cl,1.75,UC
@@ -94,16 +93,13 @@ O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Acetonitrile,N#CC,1.88,UC
 212,2b,http://usefulchem.wikispaces.com/exp212,4-nitrobenzaldehyde,O=[N+]([O-])c1ccc(C=O)cc1,Methanol,OC,0.38,UC
 205,8,http://usefulchem.wikispaces.com/exp205,4-chlorobenzaldehyde,O=Cc1ccc(Cl)cc1,Methanol,OC,0.29,UC
 212,5a,http://usefulchem.wikispaces.com/exp212,4-nitrobenzaldehyde,O=[N+]([O-])c1ccc(C=O)cc1,Toluene,c1ccccc1C,0.26,UC
-208,26b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl 
-isocyanide,O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Chloroform,ClC(Cl)Cl,0.21,UC
+208,26b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl isocyanide,O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Chloroform,ClC(Cl)Cl,0.21,UC
 207,8,http://usefulchem.wikispaces.com/exp207,glycine methyl ester,O=C(OC)CN,Ethanol,OCC,0.19,UC
 4,1b,http://onschallenge.wikispaces.com/Exp004,phenanthrene-9-carboxaldehyde,O=Cc2cc3c(c1c2cccc1)cccc3 ,Acetonitrile,N#CC,0.19,ONS
-4,1a,http://onschallenge.wikispaces.com/Exp004,phenanthrene-9-carboxaldehyde,O=Cc2cc3c(c1c2cccc1)cccc3 ,Acetonitrile,"N#CC
-",0.19,ONS
+4,1a,http://onschallenge.wikispaces.com/Exp004,phenanthrene-9-carboxaldehyde,O=Cc2cc3c(c1c2cccc1)cccc3 ,Acetonitrile,"N#CC",0.19,ONS
 208,45b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl isocyanide,O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Ethanol,OCC,0.18,UC
 207,6,http://usefulchem.wikispaces.com/exp207,sodium chloride,[Na+].[Cl-],Methanol,OC,0.18,UC
-208,35b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl 
-isocyanide,O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Toluene,c1ccccc1C,0.14,UC
+208,35b,http://usefulchem.wikispaces.com/exp208,p-Toluenesulfonylmethyl isocyanide,O=S(=O)(c1ccc(cc1)C)C[N+]#[C-],Toluene,c1ccccc1C,0.14,UC
 212,4a,http://usefulchem.wikispaces.com/exp212,4-nitrobenzaldehyde,O=[N+]([O-])c1ccc(C=O)cc1,Ethanol,OCC,0.13,UC
 212,4b,http://usefulchem.wikispaces.com/exp212,4-nitrobenzaldehyde,O=[N+]([O-])c1ccc(C=O)cc1,Ethanol,OCC,0.13,UC
 205,9,http://usefulchem.wikispaces.com/exp205,"2,6-dichlorobenzaldehyde",O=Cc1c(Cl)cccc1Cl,Methanol,OC,0.12,UC
