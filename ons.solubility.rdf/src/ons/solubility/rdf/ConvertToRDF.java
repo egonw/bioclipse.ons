@@ -8,7 +8,6 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.RDF;
-import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class ConvertToRDF {
     
@@ -22,7 +21,7 @@ public class ConvertToRDF {
 
     public void processStream(InputStream stream) throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        String header = reader.readLine();
+        /*String header = */reader.readLine();
         String line = reader.readLine();
         while (line != null) {
             createResource(line);
@@ -37,12 +36,17 @@ public class ConvertToRDF {
         Resource measurement = model.createResource(url + measurementsProcessed);
         // FIXME: how can I set the rdf:type??
         measurement.addProperty(RDF.type, ONS.Measurement);
-        measurement.addProperty(ONS.experiment, field[2]);
+        measurement.addProperty(ONS.experiment, model.createResource(field[2]));
         measurementsProcessed++;
     }
 
     public void write() {
-        model.write(System.out);
+        model.setNsPrefix("ons", ONS.NS);
+        try {
+            model.write(System.out);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
     }
 
     public static void main( String[] args ) throws Exception {
