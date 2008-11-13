@@ -1,0 +1,112 @@
+<!DOCTYPE rdf:RDF [
+	  <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+	  <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#">
+	  <!ENTITY doap "http://usefulinc.com/ns/doap#">
+	  <!ENTITY foaf "http://xmlns.com/foaf/0.1/">
+	  <!ENTITY dc "http://purl.org/dc/elements/1.1/">
+	  <!ENTITY chem "http://ontology.example.org/chemistry">
+	  ]>
+<rdf:RDF
+	xmlns:rdf="&rdf;"
+	xmlns:dc="&dc;"
+	xmlns:rdfs="&rdfs;"
+	xmlns:doap="&doap;"
+	xmlns:foaf="&foaf;"
+	xmlns:chem="&chem;"
+	>
+<!--=== PERSONS ============================================================== -->
+<foaf:Person rdf:about="http://www.chemistry.drexel.edu/people/bradley/bradley.asp">
+	<foaf:name>Jean-Claude Bradley</foaf:name>
+	<foaf:nick>jcbradley</foaf:nick>
+  	<foaf:sha1_sum>b68f7dca9555a1cfe1ad18c6d2be0db6e552d678</foaf:sha1_sum>
+	<foaf:holdsAccount>
+		<foaf:OnlineAccount>
+			<foaf:accountServiceHomepage rdf:resource="http://www.linkedin.com/"/>
+			<foaf:accountProfilePage rdf:resource="http://www.linkedin.com/in/jcbradley"/>
+		</foaf:OnlineAccount>
+	</foaf:holdsAccount>
+</foaf:Person>
+
+<!--=== PROJECT ============================================================== -->
+<doap:Project rdf:ID="SolubilityProject">
+	<doap:name>Solubility</doap:name>
+	<doap:homepage rdf:resource="http://spreadsheets.google.com/ccc?key=plwwufp30hfq0udnEmRD1aQ" />
+	<doap:shortdesc xml:lang="en">Solubility</doap:shortdesc>
+	<doap:shortdesc xml:lang="fr">Solubilité</doap:shortdesc>
+	<doap:description xml:lang="en">Solubility</doap:description>
+	<doap:description xml:lang="fr">Solubilité</doap:description>
+</doap:Project>	
+<!--=== Compound ============================================================== -->
+
+<chem:Compound rdf:about="http://commons.wikimedia.org/wiki/Image:D-Mannitol_structure.png">
+	<chem:name>D-Manitol</chem:name>
+	<chem:image rdf:resource="http://upload.wikimedia.org/wikipedia/commons/b/bb/D-Mannitol_structure.png"/>
+	<chem:smiles>O[C@H]([C@H](O)CO)[C@H](O)[C@H](O)CO</chem:smiles>
+</chem:Compound>
+
+<chem:Compound rdf:about="http://en.wikipedia.org/wiki/Ethanol">
+	<chem:name>Ethanol</chem:name>
+	<chem:image rdf:resource="http://upload.wikimedia.org/wikipedia/commons/6/6f/Ethanol_flat_structure.png"/>
+	<chem:smiles>OCC</chem:smiles>
+</chem:Compound>
+
+<chem:Compound rdf:about="http://en.wikipedia.org/wiki/Sodium_chloride">
+	<chem:name>Sodium chloride</chem:name>
+	<chem:image rdf:resource="http://upload.wikimedia.org/wikipedia/commons/e/e9/Sodium-chloride-3D-ionic.png"/>
+	<chem:smiles>[Na+].[Cl-]</chem:smiles>
+</chem:Compound>
+
+<!--=== Experiment ============================================================== -->
+<chem:Experiment rdf:about="http://usefulchem.wikispaces.com/exp207">
+	<dc:name>Hello, I'm Experiment 207</dc:name>
+	<chem:project rdf:resource="#SolubilityProject"/>
+</chem:Experiment>
+
+<chem:Experiment rdf:about="http://usefulchem.wikispaces.com/exp1">
+	<dc:name>Hello, I'm Experiment 1</dc:name>
+	<chem:project rdf:resource="#SolubilityProject"/>
+</chem:Experiment>
+
+<!--=== Sample ============================================================== -->
+<chem:Sample rdf:about="sample:11">
+	<dc:name>Hello, I'm Sample 11</dc:name>
+</chem:Sample>
+<chem:Sample rdf:about="sample:3">
+	<dc:name>Hello, I'm Sample 3</dc:name>
+</chem:Sample>
+<chem:Sample rdf:about="sample:12">
+	<dc:name>Hello, I'm Sample 12</dc:name>
+</chem:Sample>
+<!--=== Experimental Data ============================================================== -->
+<chem:ExperimentalData >
+	<dc:date>2008-01-01</dc:date>
+	<chem:author rdf:resource="http://www.chemistry.drexel.edu/people/bradley/bradley.asp"/>
+	<chem:solute rdf:resource="http://commons.wikimedia.org/wiki/Image:D-Mannitol_structure.png"/>
+	<chem:solvent rdf:resource="http://en.wikipedia.org/wiki/Ethanol"/>
+	<chem:experiment-id rdf:resource="http://usefulchem.wikispaces.com/exp207"/>
+	<chem:sample rdf:resource="sample:11"/>
+	<chem:concentration rdf:datatype="chem:Molar">0.00</chem:concentration>
+</chem:ExperimentalData>
+
+<chem:ExperimentalData>
+	<dc:date>2008-02-01</dc:date>
+	<chem:author rdf:resource="http://www.chemistry.drexel.edu/people/bradley/bradley.asp"/>
+	<chem:solute rdf:resource="http://en.wikipedia.org/wiki/Sodium_chloride"/>
+	<chem:solvent rdf:resource="http://en.wikipedia.org/wiki/Ethanol"/>
+	<chem:experiment-id rdf:resource="http://onschallenge.wikispaces.com/JennyHale-1"/>
+	<chem:sample rdf:resource="sample:3"/>
+	<chem:concentration rdf:datatype="chem:Molar">0.00</chem:concentration>
+</chem:ExperimentalData>
+
+<chem:ExperimentalData>
+	<dc:date>2008-03-01</dc:date>
+	<chem:author rdf:resource="http://www.chemistry.drexel.edu/people/bradley/bradley.asp"/>
+	<chem:solute rdf:resource="http://en.wikipedia.org/wiki/Sodium_chloride"/>
+	<chem:solvent rdf:resource="http://en.wikipedia.org/wiki/Ethanol"/>
+	<chem:experiment-id rdf:resource="http://usefulchem.wikispaces.com/exp207"/>
+	<chem:sample rdf:resource="sample:12"/>
+	<chem:concentration rdf:datatype="chem:Molar">0.00</chem:concentration>
+</chem:ExperimentalData>
+
+
+</rdf:RDF>
