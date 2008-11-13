@@ -19,6 +19,8 @@ public class ONS {
     public static final Resource NAMESPACE = model.createResource(NS);
     
     public static final Resource Measurement = model.createResource(NS+"Measurement");
+    public static final Resource Solute = model.createResource(NS+"Solute");
+    public static final Resource Solvent = model.createResource(NS+"Solvent");
 
     public static final Property solute = model.createProperty(NS + "solute");
     public static final Property solvent = model.createProperty(NS + "solvent");
