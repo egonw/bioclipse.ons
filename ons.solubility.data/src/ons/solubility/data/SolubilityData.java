@@ -1,13 +1,17 @@
-package ons.solubility.rdf;
+package ons.solubility.data;
 
 import java.io.InputStream;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetQuery;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.client.spreadsheet.WorksheetQuery;
+import com.google.gdata.data.spreadsheet.Cell;
 import com.google.gdata.data.spreadsheet.CellEntry;
 import com.google.gdata.data.spreadsheet.CellFeed;
 import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
@@ -15,16 +19,21 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 
-public class DownloadSolubilityData {
+public class SolubilityData {
 
     private SpreadsheetService service;
     private FeedURLFactory factory;
     
-    public DownloadSolubilityData() throws Exception {
-        service = new SpreadsheetService("gdata-sample-spreadsheetimport");
+    private Map<Integer,Measurement> measurements;
+    
+    public SolubilityData() throws Exception {
+        service = new SpreadsheetService("ons-solubility-javaclient");
         factory = FeedURLFactory.getDefault();
-        
-        Properties userInfo = new Properties();
+        measurements = new HashMap<Integer,Measurement>();
+    }
+    
+    public void download() throws Exception {
+       Properties userInfo = new Properties();
         InputStream input = this.getClass().getClassLoader().getResourceAsStream("userinfo.properties");
         userInfo.load(input);
         String username = userInfo.getProperty("username");
@@ -61,20 +70,33 @@ public class DownloadSolubilityData {
                                             CellFeed.class);
 
         List<CellEntry> cells = cellFeed.getEntries();
-        for (CellEntry cell : cells) {
-            System.out.println(cell.getTitle().getPlainText());
-            String shortId = cell.getId().substring(cell.getId().lastIndexOf('/') + 1);
-            System.out.println(" -- Cell(" + shortId + "/" + cell.getTitle().getPlainText()
-                + ") formula(" + cell.getCell().getInputValue() + ") numeric("
-                + cell.getCell().getNumericValue() + ") value("
-                + cell.getCell().getValue() + ")");
+        Measurement measurement = null;
+        int lastRow = 0;
+        for (CellEntry cellEntry : cells) {
+            Cell cell = cellEntry.getCell();
+            int row = cell.getRow();
+            if (row != lastRow) {
+                // new row :)
+                if (measurement != null) measurements.put(row, measurement);
+            }
+            if (row > 1) {
+                switch (cell.getCol()) {
+                    case 1: measurement.setExperiment(cell.getValue()); break;
+                    case 2: measurement.setSample(cell.getValue()); break;
+                    case 3: measurement.setReference(cell.getValue()); break;
+                    case 4: measurement.setSolute(cell.getValue()); break;
+                    case 5: measurement.setSoluteSMILES(cell.getValue()); break;
+                    case 6: measurement.setSolvent(cell.getValue()); break;
+                    case 7: measurement.setSoluteSMILES(cell.getValue()); break;
+                    case 8: measurement.setConcentration(cell.getValue()); break;
+                    default: break;
+                }
+            }
         }
     }
     
-    
-    
-    public static void main(String[] args) throws Exception {
-        DownloadSolubilityData client = new DownloadSolubilityData();
+    public Collection<Measurement> getData() {
+        return measurements.values();
     }
-    
+
 }
