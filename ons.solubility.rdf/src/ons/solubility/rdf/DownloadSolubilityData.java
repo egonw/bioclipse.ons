@@ -7,8 +7,13 @@ import java.util.Properties;
 import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetQuery;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.client.spreadsheet.WorksheetQuery;
+import com.google.gdata.data.spreadsheet.CellEntry;
+import com.google.gdata.data.spreadsheet.CellFeed;
 import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
 import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
+import com.google.gdata.data.spreadsheet.WorksheetEntry;
+import com.google.gdata.data.spreadsheet.WorksheetFeed;
 
 public class DownloadSolubilityData {
 
@@ -36,7 +41,29 @@ public class DownloadSolubilityData {
             throw new Exception("No spreadsheets with that name");
         }
 
-        SpreadsheetEntry worksheet = spreadsheets.get(0);
+        SpreadsheetEntry spreadsheet = spreadsheets.get(0);
+        
+        WorksheetQuery worksheetQuery
+        = new WorksheetQuery(spreadsheet.getWorksheetFeedUrl());
+
+        worksheetQuery.setTitleQuery("Sheet1");
+        WorksheetFeed worksheetFeed = service.query(worksheetQuery,
+                                                    WorksheetFeed.class);
+        List<WorksheetEntry> worksheets = worksheetFeed.getEntries();
+        if (worksheets.isEmpty()) {
+            throw new Exception("No worksheets with that name in spreadhsheet "
+                                + spreadsheet.getTitle().getPlainText());
+        }
+
+        WorksheetEntry worksheet = worksheets.get(0);
+        
+        CellFeed cellFeed = service.getFeed(worksheet.getCellFeedUrl(), 
+                                            CellFeed.class);
+
+        List<CellEntry> cells = cellFeed.getEntries();
+        for (CellEntry cell : cells) {
+            System.out.println("Cell: " + cell.getPlainTextContent());
+        }
     }
     
     
