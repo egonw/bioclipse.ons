@@ -62,7 +62,12 @@ public class DownloadSolubilityData {
 
         List<CellEntry> cells = cellFeed.getEntries();
         for (CellEntry cell : cells) {
-            System.out.println("Cell: " + cell.getPlainTextContent());
+            System.out.println(cell.getTitle().getPlainText());
+            String shortId = cell.getId().substring(cell.getId().lastIndexOf('/') + 1);
+            System.out.println(" -- Cell(" + shortId + "/" + cell.getTitle().getPlainText()
+                + ") formula(" + cell.getCell().getInputValue() + ") numeric("
+                + cell.getCell().getNumericValue() + ") value("
+                + cell.getCell().getValue() + ")");
         }
     }
     
