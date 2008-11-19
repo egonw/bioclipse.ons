@@ -31,14 +31,8 @@ public class ConvertToRDF {
         solventsProcessed = 0;
     }
 
-    public void processStream(InputStream stream) throws Exception {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
-        /*String header = */reader.readLine();
-        String line = reader.readLine();
-        while (line != null) {
-            createResource(line);
-            line = reader.readLine();
-        }
+    public void processData() throws Exception {
+        Solub data = new S
     }
     
     private void createResource(String line) {

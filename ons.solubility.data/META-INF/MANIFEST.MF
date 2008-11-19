@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ONS Solubility Data Java Client
+Bundle-SymbolicName: ons.solubility.data;singleton:=true
+Bundle-Version: 0.0.1
+Bundle-Vendor: Egon Willighagen
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Export-Package: ons.solubility.data
