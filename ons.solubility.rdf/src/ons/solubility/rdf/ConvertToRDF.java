@@ -1,10 +1,12 @@
 package ons.solubility.rdf;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
+
+import ons.solubility.data.Measurement;
+import ons.solubility.data.SolubilityData;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -32,35 +34,46 @@ public class ConvertToRDF {
     }
 
     public void processData() throws Exception {
-        Solub data = new S
+        Properties userInfo = new Properties();
+        InputStream input = this.getClass().getClassLoader().getResourceAsStream("userinfo.properties");
+        userInfo.load(input);
+        String username = userInfo.getProperty("username");
+        String password = userInfo.getProperty("password");
+        
+        SolubilityData data = new SolubilityData(username, password);
+        data.download();
+        for (Measurement measurement : data.getData()) {
+            createResource(measurement);
+        }
     }
     
-    private void createResource(String line) {
+    private void createResource(Measurement mData) {
         // create the resource
-        String[] field = line.split(",");
         String url = ONS.NS;
         Resource measurement = model.createResource(url + "measurement" + measurementsProcessed);
         // FIXME: how can I set the rdf:type?? that is, have ons:Measurement??
         measurement.addProperty(RDF.type, ONS.Measurement);
-        measurement.addProperty(ONS.experiment, model.createResource(field[2]));
-        String soluteName = removeQuotes(field[3]);
+        measurement.addProperty(ONS.experiment, model.createResource(mData.getExperiment()));
+        String soluteName = removeQuotes(mData.getSolute());
         Resource solute = solutes.get(soluteName);
         if (solute == null) {
             solute = model.createResource(url + "solute" + solutesProcessed);
             solute.addProperty(RDF.type, ONS.Solute);
-            solute.addProperty(DC_11.title, field[3].trim());
-            solute.addProperty(BO.smiles, field[4].trim());
+            if (mData.getSolute() != null)
+                solute.addProperty(DC_11.title, mData.getSolute());
+            if (mData.getSoluteSMILES() != null)
+                solute.addProperty(BO.smiles, mData.getSoluteSMILES());
             solutes.put(soluteName, solute);
             solutesProcessed++;
         }
         measurement.addProperty(ONS.solute, solute);
-        String solventName = removeQuotes(field[5]);
+        String solventName = removeQuotes(mData.getSolvent());
         Resource solvent = solutes.get(solventName);
         if (solvent == null) {
             solvent = model.createResource(url + "solvent" + solventsProcessed);
             solvent.addProperty(RDF.type, ONS.Solvent);
-            solvent.addProperty(DC_11.title, field[5].trim());
-            solvent.addProperty(BO.smiles, field[6].trim());
+            solvent.addProperty(DC_11.title, mData.getSolvent().trim());
+            solvent.addProperty(BO.smiles, mData.getSolventSMILES().trim());
             solvents.put(solventName, solvent);
             solventsProcessed++;
         }
@@ -69,6 +82,7 @@ public class ConvertToRDF {
     }
 
     private String removeQuotes(String string) {
+        if (string == null || string.length() == 0) return string;
         String result = string;
         if (result.charAt(0) == '"') {
             result = result.substring(1);
@@ -91,9 +105,7 @@ public class ConvertToRDF {
 
     public static void main( String[] args ) throws Exception {
         ConvertToRDF convertor = new ConvertToRDF();
-        InputStream stream = ConvertToRDF.class.getResourceAsStream("/data.csv");
-        convertor.processStream(stream);
-        convertor.write();
+        convertor.processData();
     }
 
 }

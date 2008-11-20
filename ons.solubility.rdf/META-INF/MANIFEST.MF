@@ -5,6 +5,11 @@ Bundle-SymbolicName: ons.solubility.rdf;singleton:=true
 Bundle-Version: 0.0.1
 Bundle-Vendor: Egon Willighagen
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: .
+Bundle-ClassPath: jar/commons-logging-1.1.1.jar,
+ jar/icu4j_3_4.jar,
+ jar/iri.jar,
+ jar/jena.jar,
+ jar/xercesImpl.jar,
+ .
 Export-Package: ons.solubility.rdf
 Require-Bundle: ons.solubility.data;bundle-version="0.0.1"
