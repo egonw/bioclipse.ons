@@ -25,7 +25,13 @@ public class JustDump {
 
     private void dumpResource( Measurement m) {
         System.out.println("Measurement: " + m.getExperiment());
+        System.out.println(" " + m.getSample());
         System.out.println(" " + m.getReference());
+        System.out.println(" Solute: " + m.getSolute());
+        System.out.println("   SMILES: " + m.getSoluteSMILES());
+        System.out.println(" Solvent: " + m.getSolvent());
+        System.out.println("   SMILES: " + m.getSolventSMILES());
+        System.out.println(" " + m.getConcentration());
     }
     
     public static void main( String[] args ) throws Exception {
