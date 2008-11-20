@@ -71,6 +71,7 @@ public class SolubilityData {
                 // new row :)
                 if (measurement != null) measurements.put(row, measurement);
                 lastRow = row;
+                measurement = new Measurement();
             }
             if (row > 1) {
                 switch (cell.getCol()) {
