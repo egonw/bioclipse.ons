@@ -81,7 +81,7 @@ public class SolubilityData {
                     case 4: measurement.setSolute(cell.getValue()); break;
                     case 5: measurement.setSoluteSMILES(cell.getValue()); break;
                     case 6: measurement.setSolvent(cell.getValue()); break;
-                    case 7: measurement.setSoluteSMILES(cell.getValue()); break;
+                    case 7: measurement.setSolventSMILES(cell.getValue()); break;
                     case 8: measurement.setConcentration(cell.getValue()); break;
                     default: break;
                 }
