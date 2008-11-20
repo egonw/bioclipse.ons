@@ -106,6 +106,7 @@ public class ConvertToRDF {
     public static void main( String[] args ) throws Exception {
         ConvertToRDF convertor = new ConvertToRDF();
         convertor.processData();
+        convertor.write();
     }
 
 }
