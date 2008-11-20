@@ -5,5 +5,8 @@ Bundle-SymbolicName: ons.solubility.data;singleton:=true
 Bundle-Version: 0.0.1
 Bundle-Vendor: Egon Willighagen
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: .
+Bundle-ClassPath: jar/gdata-client-1.0.jar,
+ jar/gdata-core-1.0.jar,
+ jar/gdata-spreadsheet-1.0.jar,
+ .
 Export-Package: ons.solubility.data

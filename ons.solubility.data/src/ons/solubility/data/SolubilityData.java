@@ -1,11 +1,9 @@
 package ons.solubility.data;
 
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetQuery;
@@ -26,20 +24,14 @@ public class SolubilityData {
     
     private Map<Integer,Measurement> measurements;
     
-    public SolubilityData() throws Exception {
+    public SolubilityData(String username, String password) throws Exception {
         service = new SpreadsheetService("ons-solubility-javaclient");
+        service.setUserCredentials(username, password);
         factory = FeedURLFactory.getDefault();
         measurements = new HashMap<Integer,Measurement>();
     }
     
     public void download() throws Exception {
-       Properties userInfo = new Properties();
-        InputStream input = this.getClass().getClassLoader().getResourceAsStream("userinfo.properties");
-        userInfo.load(input);
-        String username = userInfo.getProperty("username");
-        String password = userInfo.getProperty("password");
-        service.setUserCredentials(username, password);
-        
         SpreadsheetQuery spreadsheetQuery 
         = new SpreadsheetQuery(factory.getSpreadsheetsFeedUrl());
         spreadsheetQuery.setTitleQuery("SolubilitesSum");
