@@ -17,21 +17,24 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 
-public class SolubilityData {
-
+public class SolubilityData
+	{
     private SpreadsheetService service;
     private FeedURLFactory factory;
     
     private Map<Integer,Measurement> measurements;
     
     public SolubilityData(String username, String password) throws Exception {
-        service = new SpreadsheetService("ons-solubility-javaclient");
-        service.setUserCredentials(username, password);
-        factory = FeedURLFactory.getDefault();
-        measurements = new HashMap<Integer,Measurement>();
+        if(username==null) throw new NullPointerException("undefined username");
+    	if(password==null) throw new NullPointerException("undefined password");
+    	this.service = new SpreadsheetService("ons-solubility-javaclient");
+    	this.service.setUserCredentials(username, password);
+    	this.factory = FeedURLFactory.getDefault();
+    	this.measurements = new HashMap<Integer,Measurement>();
     }
     
-    public void download() throws Exception {
+    public void download() throws Exception
+    	{
         SpreadsheetQuery spreadsheetQuery 
         = new SpreadsheetQuery(factory.getSpreadsheetsFeedUrl());
         spreadsheetQuery.setTitleQuery("SolubilitesSum");
