@@ -1,15 +1,15 @@
 package ons.solubility.data;
 
-public class Measurement {
-
-    private String experiment;
-    private String sample;
-    private String reference;
-    private String solute;
-    private String solvent;
-    private String soluteSMILES;
-    private String solventSMILES;
-    private String concentration;
+public class Measurement
+    {
+    private String experiment=null;
+    private String sample=null;
+    private String reference=null;
+    private String solute=null;
+    private String solvent=null;
+    private String soluteSMILES=null;
+    private String solventSMILES=null;
+    private String concentration=null;
 
     public String getExperiment() {
         return experiment;
