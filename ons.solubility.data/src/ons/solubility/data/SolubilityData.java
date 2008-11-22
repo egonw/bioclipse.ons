@@ -92,7 +92,8 @@ public class SolubilityData
             int row = cell.getRow();
             if (row != lastRow) {
                 // new row :)
-                if (measurement != null) measurements.put(row, measurement);
+                if (measurement != null && measurement.getReference() != null)
+                    measurements.put(row, measurement);
                 lastRow = row;
                 measurement = new Measurement();
             }
