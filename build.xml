@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ons" default="all">
+<property name="data.dir" value="ons.solubility.data"/>
+<property name="data.src" value="${data.dir}/src"/>
+<property name="data.jar" value="${data.dir}/jar"/>
+<property name="data.bin" value="${data.dir}/bin"/>
+<property name="j2ee.dir" value="/usr/local/package/glassfish-v2ur2"/>
+<property name="j2ee.lib" value="${j2ee.dir}/lib"/>
+<property name="ws.host" value="http://localhost"/>
+<property name="ws.port" value="8080"/>
+
+<target name="all">
+</target>
+
+
+
+<path id="libraries">
+	<pathelement path="${data.jar}/gdata-client-1.0.jar"/>
+	<pathelement path="${data.jar}/gdata-core-1.0.jar"/>
+	<pathelement path="${data.jar}/gdata-spreadsheet-1.0.jar"/>
+</path>
+
+<path id="j2eelib">
+	<pathelement path="${j2ee.lib}/webservices-rt.jar"/>
+	<pathelement path="${j2ee.lib}/webservices-tools.jar"/>
+</path>
+
+<taskdef name="wsgen"
+	 classname="com.sun.tools.ws.ant.WsGen">
+	<classpath>
+		<path refid="j2eelib"/>
+	</classpath>
+</taskdef>
+
+<taskdef name="wsimport"
+	 classname="com.sun.tools.ws.ant.WsImport">
+	<classpath>
+		<path refid="j2eelib"/>
+	</classpath>
+</taskdef>
+
+<target name="test-webservice" depends="compile-webservice">
+	<wsimport
+		 keep="true"
+		 verbose="true"
+		 destdir="${data.src}"
+		 package="ons.solubility.ws.test"
+		 wsdl="${data.dir}/Ons.wsdl"
+		>
+	</wsimport>
+	
+	<javac srcdir="${data.src}"
+	       destdir="${data.bin}"
+	       source="1.6"
+	       target="1.6"
+	       >
+		<include name="**/ONServiceTest.java"/>
+		<classpath>
+			<path refid="libraries"/>
+		</classpath>
+	</javac>
+	<java
+	     classname="ons.solubility.ws.test.ONServiceTest"
+	     fork="true"
+	     failonerror="true"
+	     >
+		<classpath>
+			<pathelement location="${data.bin}"/>
+		</classpath>
+	</java>	
+</target>
+
+
+<target name="publish-webservice" depends="compile-webservice">
+	<java
+	     	classname="ons.solubility.ws.ONService"
+		fork="true"
+		failonerror="true"
+		>
+		<arg value="-H"/><arg value="${ws.host}"/>
+		<arg value="-p"/><arg value="${ws.port}"/>
+
+		<classpath>
+			<path refid="libraries"/>
+			<pathelement location="${data.bin}"/>
+		</classpath>
+	</java>
+</target>
+
+<target name="compile-webservice" >
+	
+	<javac srcdir="${data.src}"
+	       destdir="${data.bin}"
+	       source="1.6"
+	       target="1.6"
+	       >
+		<include name="**/ONService.java"/>
+		<classpath>
+			<path refid="libraries"/>
+		</classpath>
+	</javac>
+	
+	<wsgen
+	      	resourcedestdir="${data.dir}"
+		destdir="${data.bin}"
+		keep="true"
+		genwsdl="true"
+		sei="ons.solubility.ws.ONService"
+		>
+		<classpath>
+			<path location="${data.bin}"/>
+			<path refid="libraries"/>
+		</classpath>
+	</wsgen>
+	<replace file="${data.dir}/Ons.wsdl" token="REPLACE_WITH_ACTUAL_URL" value="${ws.host}:${ws.port}/onsolubility"/>
+	
+</target>
+
+</project>
