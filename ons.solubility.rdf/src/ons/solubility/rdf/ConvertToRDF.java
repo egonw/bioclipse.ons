@@ -134,7 +134,8 @@ public class ConvertToRDF {
                 }
                 solute.addProperty(
                     RDFS.isDefinedBy,
-                    "http://rdf.openmolecule.net/?" + inchiGenerator.getInchi()
+                    model.createResource("http://rdf.openmolecules.net/?" +
+                          inchiGenerator.getInchi())
                 );
             } catch ( InvalidSmilesException e ) {
                 System.out.println("Error in parsing SMILES: " + SMILES);
