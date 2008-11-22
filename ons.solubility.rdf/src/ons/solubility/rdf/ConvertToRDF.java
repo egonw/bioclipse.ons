@@ -88,7 +88,7 @@ public class ConvertToRDF {
         }
         measurement.addProperty(ONS.solute, solute);
         String solventName = removeQuotes(mData.getSolvent());
-        Resource solvent = solutes.get(solventName);
+        Resource solvent = solvents.get(solventName);
         if (solvent == null) {
             solvent = model.createResource(url + "solvent" + solventsProcessed);
             solvent.addProperty(RDF.type, ONS.Solvent);
