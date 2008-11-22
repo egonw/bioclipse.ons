@@ -34,8 +34,13 @@ import org.openscience.cdk.exception.InvalidSmilesException;
 import org.openscience.cdk.inchi.InChIGenerator;
 import org.openscience.cdk.inchi.InChIGeneratorFactory;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.interfaces.IRing;
+import org.openscience.cdk.interfaces.IRingSet;
 import org.openscience.cdk.nonotify.NoNotificationChemObjectBuilder;
+import org.openscience.cdk.ringsearch.SSSRFinder;
 import org.openscience.cdk.smiles.SmilesParser;
+import org.openscience.cdk.tools.DeAromatizationTool;
+import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -117,7 +122,7 @@ public class ConvertToRDF {
             solute.addProperty(RDF.type, ONS.Solute);
             if (mData.getSolute() != null)
                 solute.addProperty(DC_11.title, mData.getSolute());
-            String SMILES = mData.getSoluteSMILES();
+            String SMILES = mData.getSoluteSMILES().trim();
             if (SMILES != null) solute.addProperty(BO.smiles, SMILES);
             try {
                 IAtomContainer container = smilesParser.parseSmiles(SMILES);
