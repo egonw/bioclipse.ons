@@ -25,16 +25,29 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import net.sf.jniinchi.INCHI_RET;
 import ons.solubility.data.Measurement;
 import ons.solubility.data.SolubilityData;
+
+import org.openscience.cdk.exception.CDKException;
+import org.openscience.cdk.exception.InvalidSmilesException;
+import org.openscience.cdk.inchi.InChIGenerator;
+import org.openscience.cdk.inchi.InChIGeneratorFactory;
+import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.nonotify.NoNotificationChemObjectBuilder;
+import org.openscience.cdk.smiles.SmilesParser;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.DC_11;
 import com.hp.hpl.jena.vocabulary.RDF;
+import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class ConvertToRDF {
+    
+    private SmilesParser smilesParser;
+    private InChIGeneratorFactory inchiFactory;
     
     private Model model;
     private int measurementsProcessed;
@@ -44,13 +57,16 @@ public class ConvertToRDF {
     private Map<String,Resource> solvents;
     private Map<String,Resource> solutes;
 
-    public ConvertToRDF() {
+    public ConvertToRDF() throws Exception {
         model = ModelFactory.createDefaultModel();
         measurementsProcessed = 0;
         solvents = new HashMap<String,Resource>();
         solutes = new HashMap<String,Resource>();
         solutesProcessed = 0;
         solventsProcessed = 0;
+
+        smilesParser = new SmilesParser(NoNotificationChemObjectBuilder.getInstance());
+        inchiFactory = new InChIGeneratorFactory();
     }
 
     public void processData() throws Exception {
@@ -101,8 +117,32 @@ public class ConvertToRDF {
             solute.addProperty(RDF.type, ONS.Solute);
             if (mData.getSolute() != null)
                 solute.addProperty(DC_11.title, mData.getSolute());
-            if (mData.getSoluteSMILES() != null)
-                solute.addProperty(BO.smiles, mData.getSoluteSMILES());
+            String SMILES = mData.getSoluteSMILES();
+            if (SMILES != null) solute.addProperty(BO.smiles, SMILES);
+            try {
+                IAtomContainer container = smilesParser.parseSmiles(SMILES);
+                InChIGenerator inchiGenerator =
+                    inchiFactory.getInChIGenerator(container);
+                INCHI_RET ret = inchiGenerator.getReturnStatus();
+                if (ret == INCHI_RET.WARNING) {
+                    // InChI generated, but with warning message
+                    System.out.println("InChI warning: " + inchiGenerator.getMessage());
+                } else if (ret != INCHI_RET.OKAY) {
+                    // InChI generation failed
+                    throw new CDKException("InChI failed: " + ret.toString()
+                                           + " [" + inchiGenerator.getMessage() + "]");
+                }
+                solute.addProperty(
+                    RDFS.isDefinedBy,
+                    "http://rdf.openmolecule.net/?" + inchiGenerator.getInchi()
+                );
+            } catch ( InvalidSmilesException e ) {
+                System.out.println("Error in parsing SMILES: " + SMILES);
+                e.printStackTrace();
+            } catch ( CDKException e ) {
+                System.out.println("Error in creating InChI for SMILES: " + SMILES);
+                e.printStackTrace();
+            }
             solutes.put(soluteName, solute);
             solutesProcessed++;
         }
