@@ -74,10 +74,30 @@ public class ConvertToRDF {
 //        // FIXME: how can I set the rdf:type?? that is, have ons:Measurement??
         measurement.addProperty(RDF.type, ONS.Measurement);
         measurement.addProperty(ONS.experiment, model.createResource(url + "experiment" + mData.getExperiment()));
+        measurement.addProperty(ONS.solute, getSoluteResource(mData));
+        measurement.addProperty(ONS.solvent, getSolventResource(mData));
+        measurementsProcessed++;
+    }
+
+    private Resource getSolventResource(Measurement mData) {
+        String solventName = removeQuotes(mData.getSolvent());
+        Resource solvent = solvents.get(solventName);
+        if (solvent == null) {
+            solvent = model.createResource(ONS.NS + "solvent" + solventsProcessed);
+            solvent.addProperty(RDF.type, ONS.Solvent);
+            solvent.addProperty(DC_11.title, mData.getSolvent().trim());
+            solvent.addProperty(BO.smiles, mData.getSolventSMILES().trim());
+            solvents.put(solventName, solvent);
+            solventsProcessed++;
+        }
+        return solvent;
+    }
+
+    private Resource getSoluteResource(Measurement mData) {
         String soluteName = removeQuotes(mData.getSolute());
         Resource solute = solutes.get(soluteName);
         if (solute == null) {
-            solute = model.createResource(url + "solute" + solutesProcessed);
+            solute = model.createResource(ONS.NS + "solute" + solutesProcessed);
             solute.addProperty(RDF.type, ONS.Solute);
             if (mData.getSolute() != null)
                 solute.addProperty(DC_11.title, mData.getSolute());
@@ -86,19 +106,7 @@ public class ConvertToRDF {
             solutes.put(soluteName, solute);
             solutesProcessed++;
         }
-        measurement.addProperty(ONS.solute, solute);
-        String solventName = removeQuotes(mData.getSolvent());
-        Resource solvent = solvents.get(solventName);
-        if (solvent == null) {
-            solvent = model.createResource(url + "solvent" + solventsProcessed);
-            solvent.addProperty(RDF.type, ONS.Solvent);
-            solvent.addProperty(DC_11.title, mData.getSolvent().trim());
-            solvent.addProperty(BO.smiles, mData.getSolventSMILES().trim());
-            solvents.put(solventName, solvent);
-            solventsProcessed++;
-        }
-        measurement.addProperty(ONS.solvent, solvent);
-        measurementsProcessed++;
+        return solute;
     }
 
     private String removeQuotes(String string) {
