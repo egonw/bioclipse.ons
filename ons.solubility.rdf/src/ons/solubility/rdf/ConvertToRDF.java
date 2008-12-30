@@ -44,7 +44,6 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.DC_11;
 import com.hp.hpl.jena.vocabulary.RDF;
-import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class ConvertToRDF {
     
@@ -109,13 +108,41 @@ public class ConvertToRDF {
             if (mData.getSolvent() != null) {
                 solvent.addProperty(DC_11.title, mData.getSolvent().trim());
             }
-            if (mData.getSolventSMILES() != null) {
-                solvent.addProperty(BO.smiles, mData.getSolventSMILES().trim());
+            String SMILES = mData.getSolventSMILES().trim();
+            if (SMILES != null) {
+                solvent.addProperty(BO.smiles, SMILES);
+                String inchi = getInChI(SMILES);
+                if (inchi != null) solvent.addProperty(BO.inchi, inchi);
             }
             solvents.put(solventName, solvent);
             solventsProcessed++;
         }
         return solvent;
+    }
+
+    private String getInChI(String SMILES) {
+        try {
+            IAtomContainer container = smilesParser.parseSmiles(SMILES);
+            InChIGenerator inchiGenerator =
+                inchiFactory.getInChIGenerator(container);
+            INCHI_RET ret = inchiGenerator.getReturnStatus();
+            if (ret == INCHI_RET.WARNING) {
+                // InChI generated, but with warning message
+                System.out.println("InChI warning: " + inchiGenerator.getMessage());
+            } else if (ret != INCHI_RET.OKAY) {
+                // InChI generation failed
+                throw new CDKException("InChI failed: " + ret.toString()
+                                       + " [" + inchiGenerator.getMessage() + "]");
+            }
+            return inchiGenerator.getInchi();
+        } catch ( InvalidSmilesException e ) {
+            System.out.println("Error in parsing SMILES: " + SMILES);
+            // e.printStackTrace();
+        } catch ( CDKException e ) {
+            System.out.println("Error in creating InChI for SMILES: " + SMILES);
+            // e.printStackTrace();
+        }
+        return null;
     }
 
     private Resource getSoluteResource(Measurement mData) {
@@ -127,31 +154,10 @@ public class ConvertToRDF {
             if (mData.getSolute() != null)
                 solute.addProperty(DC_11.title, mData.getSolute());
             String SMILES = mData.getSoluteSMILES().trim();
-            if (SMILES != null) solute.addProperty(BO.smiles, SMILES);
-            try {
-                IAtomContainer container = smilesParser.parseSmiles(SMILES);
-                InChIGenerator inchiGenerator =
-                    inchiFactory.getInChIGenerator(container);
-                INCHI_RET ret = inchiGenerator.getReturnStatus();
-                if (ret == INCHI_RET.WARNING) {
-                    // InChI generated, but with warning message
-                    System.out.println("InChI warning: " + inchiGenerator.getMessage());
-                } else if (ret != INCHI_RET.OKAY) {
-                    // InChI generation failed
-                    throw new CDKException("InChI failed: " + ret.toString()
-                                           + " [" + inchiGenerator.getMessage() + "]");
-                }
-                solute.addProperty(
-                    RDFS.isDefinedBy,
-                    model.createResource("http://rdf.openmolecules.net/?" +
-                          inchiGenerator.getInchi())
-                );
-            } catch ( InvalidSmilesException e ) {
-                System.out.println("Error in parsing SMILES: " + SMILES);
-                // e.printStackTrace();
-            } catch ( CDKException e ) {
-                System.out.println("Error in creating InChI for SMILES: " + SMILES);
-                // e.printStackTrace();
+            if (SMILES != null) {
+                solute.addProperty(BO.smiles, SMILES);
+                String inchi = getInChI(SMILES);
+                if (inchi != null) solute.addProperty(BO.inchi, inchi);
             }
             solutes.put(soluteName, solute);
             solutesProcessed++;
