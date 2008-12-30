@@ -148,10 +148,10 @@ public class ConvertToRDF {
                 );
             } catch ( InvalidSmilesException e ) {
                 System.out.println("Error in parsing SMILES: " + SMILES);
-                e.printStackTrace();
+                // e.printStackTrace();
             } catch ( CDKException e ) {
                 System.out.println("Error in creating InChI for SMILES: " + SMILES);
-                e.printStackTrace();
+                // e.printStackTrace();
             }
             solutes.put(soluteName, solute);
             solutesProcessed++;
