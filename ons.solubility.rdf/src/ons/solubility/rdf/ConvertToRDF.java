@@ -91,7 +91,6 @@ public class ConvertToRDF {
         // create the resource
         String url = ONS.NS;
         Resource measurement = model.createResource(url + "measurement" + measurementsProcessed);
-//        // FIXME: how can I set the rdf:type?? that is, have ons:Measurement??
         measurement.addProperty(RDF.type, ONS.Measurement);
         measurement.addProperty(ONS.experiment, model.createResource(url + "experiment" + mData.getExperiment()));
         measurement.addProperty(ONS.solute, getSoluteResource(mData));
