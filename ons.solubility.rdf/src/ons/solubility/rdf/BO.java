@@ -39,5 +39,6 @@ public class BO {
     public static final Resource NAMESPACE = model.createResource(NS);
     
     public static final Property smiles = model.createProperty(NS + "smiles");
+    public static final Property inchi = model.createProperty(NS + "inchi");
     
 }
