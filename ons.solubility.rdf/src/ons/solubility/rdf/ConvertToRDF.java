@@ -44,9 +44,12 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.DC_11;
 import com.hp.hpl.jena.vocabulary.RDF;
+import com.hp.hpl.jena.vocabulary.RDFS;
 
 public class ConvertToRDF {
     
+    private final String RON = "http://rdf.openmolecules.net/?";
+
     private SmilesParser smilesParser;
     private InChIGeneratorFactory inchiFactory;
     
@@ -112,7 +115,11 @@ public class ConvertToRDF {
             if (SMILES != null) {
                 solvent.addProperty(BO.smiles, SMILES);
                 String inchi = getInChI(SMILES);
-                if (inchi != null) solvent.addProperty(BO.inchi, inchi);
+                if (inchi != null) {
+                    solvent.addProperty(BO.inchi, inchi);
+                    solvent.addProperty(RDFS.isDefinedBy,
+                            model.createResource(RON + inchi));
+                }
             }
             solvents.put(solventName, solvent);
             solventsProcessed++;
@@ -157,7 +164,11 @@ public class ConvertToRDF {
             if (SMILES != null) {
                 solute.addProperty(BO.smiles, SMILES);
                 String inchi = getInChI(SMILES);
-                if (inchi != null) solute.addProperty(BO.inchi, inchi);
+                if (inchi != null) {
+                    solute.addProperty(BO.inchi, inchi);
+                    solute.addProperty(RDFS.isDefinedBy,
+                            model.createResource(RON + inchi));
+                }
             }
             solutes.put(soluteName, solute);
             solutesProcessed++;

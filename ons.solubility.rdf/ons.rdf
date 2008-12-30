@@ -2,7 +2,8 @@
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:ons="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
-    xmlns:chem="http://blueobelisk.sourceforge.net/chemistryblogs/">
+    xmlns:chem="http://blueobelisk.sourceforge.net/chemistryblogs/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
   <ons:Measurement rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#measurement194">
     <ons:solubility>0.26</ons:solubility>
     <ons:solvent>
@@ -23,6 +24,7 @@
     <ons:solubility>2.83</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent8">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C4H8O/c1-2-4-5-3-1/h1-4H2"/>
         <chem:inchi>InChI=1/C4H8O/c1-2-4-5-3-1/h1-4H2</chem:inchi>
         <chem:smiles>O1CCCC1</chem:smiles>
         <dc:title>THF</dc:title>
@@ -40,6 +42,7 @@
     <ons:solubility>6.64</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/CH4O/c1-2/h2H,1H3"/>
         <chem:inchi>InChI=1/CH4O/c1-2/h2H,1H3</chem:inchi>
         <chem:smiles>OC</chem:smiles>
         <dc:title>methanol</dc:title>
@@ -47,6 +50,7 @@
     </ons:solvent>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute59">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C8H14O2/c1-2-3-4-5-6-7-8(9)10/h6-7H,2-5H2,1H3,(H,9,10)"/>
         <chem:inchi>InChI=1/C8H14O2/c1-2-3-4-5-6-7-8(9)10/h6-7H,2-5H2,1H3,(H,9,10)</chem:inchi>
         <chem:smiles>CCCCCC=CC(=O)O</chem:smiles>
         <dc:title>2-octenoic acid</dc:title>
@@ -58,6 +62,7 @@
     <ons:solubility>2.56</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent0">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C2H3N/c1-2-3/h1H3"/>
         <chem:inchi>InChI=1/C2H3N/c1-2-3/h1H3</chem:inchi>
         <chem:smiles>N#CC</chem:smiles>
         <dc:title>acetonitrile</dc:title>
@@ -75,6 +80,7 @@
     <ons:solubility>1.77595888455315</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent2">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3"/>
         <chem:inchi>InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3</chem:inchi>
         <chem:smiles>OCC</chem:smiles>
         <dc:title>ethanol</dc:title>
@@ -82,6 +88,7 @@
     </ons:solvent>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute16">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H8O7/c7-3(8)1-6(13,5(11)12)2-4(9)10/h13H,1-2H2,(H,7,8)(H,9,10)(H,11,12)"/>
         <chem:inchi>InChI=1/C6H8O7/c7-3(8)1-6(13,5(11)12)2-4(9)10/h13H,1-2H2,(H,7,8)(H,9,10)(H,11,12)</chem:inchi>
         <chem:smiles>O=C(O)CC(O)(C(=O)O)CC(=O)O</chem:smiles>
         <dc:title>citric acid monohydrate</dc:title>
@@ -93,6 +100,7 @@
     <ons:solubility>2.74</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent6">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/CH4O/c1-2/h2H,1H3"/>
         <chem:inchi>InChI=1/CH4O/c1-2/h2H,1H3</chem:inchi>
         <chem:smiles>OC</chem:smiles>
         <dc:title>methanol 40C</dc:title>
@@ -117,6 +125,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute40">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C4H8O2/c1-2-3-4(5)6/h2-3H2,1H3,(H,5,6)"/>
         <chem:inchi>InChI=1/C4H8O2/c1-2-3-4(5)6/h2-3H2,1H3,(H,5,6)</chem:inchi>
         <chem:smiles>CCCC(=O)O</chem:smiles>
         <dc:title>Butyric acid</dc:title>
@@ -151,6 +160,7 @@
     <ons:solubility>1.75</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent1">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/CHCl3/c2-1(3)4/h1H"/>
         <chem:inchi>InChI=1/CHCl3/c2-1(3)4/h1H</chem:inchi>
         <chem:smiles>ClC(Cl)Cl</chem:smiles>
         <dc:title>chloroform</dc:title>
@@ -169,6 +179,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute47">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C9H16O2/c10-9(11)7-6-8-4-2-1-3-5-8/h8H,1-7H2,(H,10,11)"/>
         <chem:inchi>InChI=1/C9H16O2/c10-9(11)7-6-8-4-2-1-3-5-8/h8H,1-7H2,(H,10,11)</chem:inchi>
         <chem:smiles>C1CCC(CC1)CCC(=O)O</chem:smiles>
         <dc:title>Cyclohexanepropionic acid</dc:title>
@@ -181,6 +192,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute36">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C5H10O2/c1-2-3-4-5(6)7/h2-4H2,1H3,(H,6,7)"/>
         <chem:inchi>InChI=1/C5H10O2/c1-2-3-4-5(6)7/h2-4H2,1H3,(H,6,7)</chem:inchi>
         <chem:smiles>CCCCC(=O)O</chem:smiles>
         <dc:title>Pentanoic acid</dc:title>
@@ -237,6 +249,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent2"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute15">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C8H15BrO2/c9-7-5-3-1-2-4-6-8(10)11/h1-7H2,(H,10,11)"/>
         <chem:inchi>InChI=1/C8H15BrO2/c9-7-5-3-1-2-4-6-8(10)11/h1-7H2,(H,10,11)</chem:inchi>
         <chem:smiles>BrCCCCCCCC(=O)O</chem:smiles>
         <dc:title>8-bromo-octanoic acid
@@ -279,6 +292,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute53">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H12O/c1-2-3-4-5-6-7/h6H,2-5H2,1H3"/>
         <chem:inchi>InChI=1/C6H12O/c1-2-3-4-5-6-7/h6H,2-5H2,1H3</chem:inchi>
         <chem:smiles>CCCCCC=O</chem:smiles>
         <dc:title>hexanaldehyde</dc:title>
@@ -302,6 +316,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent2"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute28">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C4H6O2/c1-2-3-4(5)6/h2-3H,1H3,(H,5,6)"/>
         <chem:inchi>InChI=1/C4H6O2/c1-2-3-4(5)6/h2-3H,1H3,(H,5,6)</chem:inchi>
         <chem:smiles>C\C=C\C(O)=O</chem:smiles>
         <dc:title>crotonic acid</dc:title>
@@ -336,6 +351,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent2"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute14">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C8H16O2/c1-2-3-4-5-6-7-8(9)10/h2-7H2,1H3,(H,9,10)"/>
         <chem:inchi>InChI=1/C8H16O2/c1-2-3-4-5-6-7-8(9)10/h2-7H2,1H3,(H,9,10)</chem:inchi>
         <chem:smiles>O=C(O)CCCCCCC</chem:smiles>
         <dc:title>n-octanoic acid</dc:title>
@@ -359,6 +375,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute58">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C3H6O3/c1-6-2-3(4)5/h2H2,1H3,(H,4,5)"/>
         <chem:inchi>InChI=1/C3H6O3/c1-6-2-3(4)5/h2H2,1H3,(H,4,5)</chem:inchi>
         <chem:smiles>COCC(=O)O</chem:smiles>
         <dc:title>Methoxyacetic acid</dc:title>
@@ -376,6 +393,7 @@
     <ons:solubility>3.48</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent7">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/CH4O/c1-2/h2H,1H3"/>
         <chem:inchi>InChI=1/CH4O/c1-2/h2H,1H3</chem:inchi>
         <chem:smiles>OC</chem:smiles>
         <dc:title>methanol 30C</dc:title>
@@ -424,6 +442,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent2"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute19">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H14O6/c7-1-3(9)5(11)6(12)4(10)2-8/h3-12H,1-2H2"/>
         <chem:inchi>InChI=1/C6H14O6/c7-1-3(9)5(11)6(12)4(10)2-8/h3-12H,1-2H2</chem:inchi>
         <chem:smiles>O[C@H]([C@H](O)CO)[C@H](O)[C@H](O)CO</chem:smiles>
         <dc:title>D-Mannitol</dc:title>
@@ -519,6 +538,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute23">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C7H13NO4/c1-7(2,3)12-6(11)8-4-5(9)10/h4H2,1-3H3,(H,8,11)(H,9,10)"/>
         <chem:inchi>InChI=1/C7H13NO4/c1-7(2,3)12-6(11)8-4-5(9)10/h4H2,1-3H3,(H,8,11)(H,9,10)</chem:inchi>
         <chem:smiles>O=C(OC(C)(C)C)NCC(=O)O</chem:smiles>
         <dc:title>boc-glycine</dc:title>
@@ -542,6 +562,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute13">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H12O6/c7-1-2-3(8)4(9)5(10)6(11)12-2/h2-11H,1H2"/>
         <chem:inchi>InChI=1/C6H12O6/c7-1-2-3(8)4(9)5(10)6(11)12-2/h2-11H,1H2</chem:inchi>
         <chem:smiles>O[C@H]1[C@H](O)[C@H](OC(O)[C@@H]1O)CO</chem:smiles>
         <dc:title>D-Glucose</dc:title>
@@ -578,6 +599,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute61">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C2HCl3O2/c3-2(4,5)1(6)7/h(H,6,7)"/>
         <chem:inchi>InChI=1/C2HCl3O2/c3-2(4,5)1(6)7/h(H,6,7)</chem:inchi>
         <chem:smiles>C(=O)(C(Cl)(Cl)Cl)O</chem:smiles>
         <dc:title>Trichloroacetic acid</dc:title>
@@ -637,6 +659,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute18">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/ClH.Na/h1H;/q;+1/p-1"/>
         <chem:inchi>InChI=1/ClH.Na/h1H;/q;+1/p-1</chem:inchi>
         <chem:smiles>Cl[Na]</chem:smiles>
         <dc:title>sodium chloride</dc:title>
@@ -678,6 +701,7 @@
     <ons:solubility>2.8</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent4">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3"/>
         <chem:inchi>InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3</chem:inchi>
         <chem:smiles>OCC</chem:smiles>
         <dc:title>ethanol 30C</dc:title>
@@ -703,6 +727,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent2"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute22">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C3H7NO2/c1-6-3(5)2-4/h2,4H2,1H3"/>
         <chem:inchi>InChI=1/C3H7NO2/c1-6-3(5)2-4/h2,4H2,1H3</chem:inchi>
         <chem:smiles>O=C(OC)CN</chem:smiles>
         <dc:title>glycine methyl ester</dc:title>
@@ -721,6 +746,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute52">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C5H10O2/c1-4(2)3-5(6)7/h4H,3H2,1-2H3,(H,6,7)"/>
         <chem:inchi>InChI=1/C5H10O2/c1-4(2)3-5(6)7/h4H,3H2,1-2H3,(H,6,7)</chem:inchi>
         <chem:smiles>CC(C)CC(=O)O</chem:smiles>
         <dc:title>Isovaleric acid</dc:title>
@@ -733,6 +759,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute32">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/CH2O2/c2-1-3/h1H,(H,2,3)"/>
         <chem:inchi>InChI=1/CH2O2/c2-1-3/h1H,(H,2,3)</chem:inchi>
         <chem:smiles>O=CO</chem:smiles>
         <dc:title>formic acid</dc:title>
@@ -769,6 +796,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute60">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C18H32O2/c1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18(19)20/h6-7,9-10H,2-5,8,11-17H2,1H3,(H,19,20)"/>
         <chem:inchi>InChI=1/C18H32O2/c1-2-3-4-5-6-7-8-9-10-11-12-13-14-15-16-17-18(19)20/h6-7,9-10H,2-5,8,11-17H2,1H3,(H,19,20)</chem:inchi>
         <chem:smiles>CCCCCC=CCC=CCCCCCCCC(=O)O</chem:smiles>
         <dc:title>Linoleic acid</dc:title>
@@ -817,6 +845,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute17">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C5H6O5/c6-3(5(9)10)1-2-4(7)8/h1-2H2,(H,7,8)(H,9,10)"/>
         <chem:inchi>InChI=1/C5H6O5/c6-3(5(9)10)1-2-4(7)8/h1-2H2,(H,7,8)(H,9,10)</chem:inchi>
         <chem:smiles>O=C(O)C(=O)CCC(=O)O</chem:smiles>
         <dc:title>2-oxopentanedioic acid</dc:title>
@@ -888,6 +917,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute34">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C12H10O2/c1-14-12-7-6-9-4-2-3-5-10(9)11(12)8-13/h2-8H,1H3"/>
         <chem:inchi>InChI=1/C12H10O2/c1-14-12-7-6-9-4-2-3-5-10(9)11(12)8-13/h2-8H,1H3</chem:inchi>
         <chem:smiles>O=Cc1c2c(ccc1OC)cccc2</chem:smiles>
         <dc:title>2-methoxy-1-naphthaldehyde</dc:title>
@@ -966,6 +996,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute51">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C4H6O/c1-2-3-4-5/h2-4H,1H3"/>
         <chem:inchi>InChI=1/C4H6O/c1-2-3-4-5/h2-4H,1H3</chem:inchi>
         <chem:smiles>CC=CC=O</chem:smiles>
         <dc:title>crotonaldehyde</dc:title>
@@ -1036,6 +1067,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute56">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H10O/c1-2-3-4-5-6-7/h4-6H,2-3H2,1H3"/>
         <chem:inchi>InChI=1/C6H10O/c1-2-3-4-5-6-7/h4-6H,2-3H2,1H3</chem:inchi>
         <chem:smiles>CCCC=CC=O</chem:smiles>
         <dc:title>trans-2-hexen-1-al</dc:title>
@@ -1070,6 +1102,7 @@
     <ons:solubility>3.4</ons:solubility>
     <ons:solvent>
       <ons:Solvent rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent3">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3"/>
         <chem:inchi>InChI=1/C2H6O/c1-2-3/h3H,2H2,1H3</chem:inchi>
         <chem:smiles>OCC</chem:smiles>
         <dc:title>ethanol 40C</dc:title>
@@ -1171,6 +1204,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute44">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C7H6O2/c8-5-6-3-1-2-4-7(6)9/h1-5,9H"/>
         <chem:inchi>InChI=1/C7H6O2/c8-5-6-3-1-2-4-7(6)9/h1-5,9H</chem:inchi>
         <chem:smiles>C1=CC=C(C(=C1)C=O)O</chem:smiles>
         <dc:title>salicylaldehyde</dc:title>
@@ -1207,6 +1241,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute54">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C5H10O2/c1-3-4(2)5(6)7/h4H,3H2,1-2H3,(H,6,7)"/>
         <chem:inchi>InChI=1/C5H10O2/c1-3-4(2)5(6)7/h4H,3H2,1-2H3,(H,6,7)</chem:inchi>
         <chem:smiles>CCC(C)C(=O)O</chem:smiles>
         <dc:title>2-methyl butyric acid</dc:title>
@@ -1231,6 +1266,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute49">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C7H12O/c8-6-7-4-2-1-3-5-7/h6-7H,1-5H2"/>
         <chem:inchi>InChI=1/C7H12O/c8-6-7-4-2-1-3-5-7/h6-7H,1-5H2</chem:inchi>
         <chem:smiles>C1CCC(CC1)C=O</chem:smiles>
         <dc:title>cyclohexanecarbaldehyde</dc:title>
@@ -1243,6 +1279,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute30">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C2H4O2/c1-2(3)4/h1H3,(H,3,4)"/>
         <chem:inchi>InChI=1/C2H4O2/c1-2(3)4/h1H3,(H,3,4)</chem:inchi>
         <chem:smiles>O=C(O)C</chem:smiles>
         <dc:title>Acetic acid</dc:title>
@@ -1255,6 +1292,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute43">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H12O2/c1-2-3-4-5-6(7)8/h2-5H2,1H3,(H,7,8)"/>
         <chem:inchi>InChI=1/C6H12O2/c1-2-3-4-5-6(7)8/h2-5H2,1H3,(H,7,8)</chem:inchi>
         <chem:smiles>CCCCCC(=O)O</chem:smiles>
         <dc:title>Hexanoic acid</dc:title>
@@ -1285,6 +1323,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute38">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C3H6O2/c1-2-3(4)5/h2H2,1H3,(H,4,5)"/>
         <chem:inchi>InChI=1/C3H6O2/c1-2-3(4)5/h2H2,1H3,(H,4,5)</chem:inchi>
         <chem:smiles>CCC(=O)O</chem:smiles>
         <dc:title>Propanoic acid</dc:title>
@@ -1321,6 +1360,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute48">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C8H16O2/c1-3-5-6-7(4-2)8(9)10/h7H,3-6H2,1-2H3,(H,9,10)"/>
         <chem:inchi>InChI=1/C8H16O2/c1-3-5-6-7(4-2)8(9)10/h7H,3-6H2,1-2H3,(H,9,10)</chem:inchi>
         <chem:smiles>CCCCC(CC)C(=O)O</chem:smiles>
         <dc:title>2-Ethylhexanoic acid</dc:title>
@@ -1369,6 +1409,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute63">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C3H6O2S/c4-3(5)1-2-6/h6H,1-2H2,(H,4,5)"/>
         <chem:inchi>InChI=1/C3H6O2S/c4-3(5)1-2-6/h6H,1-2H2,(H,4,5)</chem:inchi>
         <chem:smiles>C(CS)C(=O)O</chem:smiles>
         <dc:title>3-Mercaptopropionic acid</dc:title>
@@ -1422,6 +1463,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute57">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C6H12O/c1-3-6(4-2)5-7/h5-6H,3-4H2,1-2H3"/>
         <chem:inchi>InChI=1/C6H12O/c1-3-6(4-2)5-7/h5-6H,3-4H2,1-2H3</chem:inchi>
         <chem:smiles>CCC(CC)C=O</chem:smiles>
         <dc:title>2-Ethylbutyraldehyde</dc:title>
@@ -1522,6 +1564,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute41">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C7H12O2/c8-7(9)6-4-2-1-3-5-6/h6H,1-5H2,(H,8,9)"/>
         <chem:inchi>InChI=1/C7H12O2/c8-7(9)6-4-2-1-3-5-6/h6H,1-5H2,(H,8,9)</chem:inchi>
         <chem:smiles>C1CCC(CC1)C(=O)O</chem:smiles>
         <dc:title>Cyclohexanecarboxylic acid</dc:title>
@@ -1564,6 +1607,7 @@
     <ons:solvent rdf:resource="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solvent5"/>
     <ons:solute>
       <ons:Solute rdf:about="http://spreadsheet.google.com/plwwufp30hfq0udnEmRD1aQ/onto#solute64">
+        <rdfs:isDefinedBy rdf:resource="http://rdf.openmolecules.net/?InChI=1/C4H6O2/c1-3(2)4(5)6/h1H2,2H3,(H,5,6)"/>
         <chem:inchi>InChI=1/C4H6O2/c1-3(2)4(5)6/h1H2,2H3,(H,5,6)</chem:inchi>
         <chem:smiles>CC(=C)C(=O)O</chem:smiles>
         <dc:title>Methacrylic acid</dc:title>
