@@ -170,7 +170,7 @@ public class ConvertToRDF {
         model.setNsPrefix("ons", ONS.NS);
         model.setNsPrefix("chem", BO.NS);
         try {
-            model.write(System.out);
+            model.write(System.out, "N-TRIPLE");
         } catch (Exception exception) {
             exception.printStackTrace();
         }
