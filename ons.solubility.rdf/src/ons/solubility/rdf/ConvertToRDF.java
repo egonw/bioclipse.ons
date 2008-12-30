@@ -95,6 +95,7 @@ public class ConvertToRDF {
         measurement.addProperty(ONS.experiment, model.createResource(url + "experiment" + mData.getExperiment()));
         measurement.addProperty(ONS.solute, getSoluteResource(mData));
         measurement.addProperty(ONS.solvent, getSolventResource(mData));
+        measurement.addProperty(ONS.solubility, mData.getConcentration());
         measurementsProcessed++;
     }
 

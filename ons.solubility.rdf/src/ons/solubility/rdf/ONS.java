@@ -45,5 +45,6 @@ public class ONS {
     public static final Property solute = model.createProperty(NS + "solute");
     public static final Property solvent = model.createProperty(NS + "solvent");
     public static final Property experiment = model.createProperty(NS + "experiment");
+    public static final Property solubility = model.createProperty(NS + "solubility");
     
 }
