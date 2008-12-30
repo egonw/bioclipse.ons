@@ -34,13 +34,8 @@ import org.openscience.cdk.exception.InvalidSmilesException;
 import org.openscience.cdk.inchi.InChIGenerator;
 import org.openscience.cdk.inchi.InChIGeneratorFactory;
 import org.openscience.cdk.interfaces.IAtomContainer;
-import org.openscience.cdk.interfaces.IRing;
-import org.openscience.cdk.interfaces.IRingSet;
 import org.openscience.cdk.nonotify.NoNotificationChemObjectBuilder;
-import org.openscience.cdk.ringsearch.SSSRFinder;
 import org.openscience.cdk.smiles.SmilesParser;
-import org.openscience.cdk.tools.DeAromatizationTool;
-import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -106,8 +101,12 @@ public class ConvertToRDF {
         if (solvent == null) {
             solvent = model.createResource(ONS.NS + "solvent" + solventsProcessed);
             solvent.addProperty(RDF.type, ONS.Solvent);
-            solvent.addProperty(DC_11.title, mData.getSolvent().trim());
-            solvent.addProperty(BO.smiles, mData.getSolventSMILES().trim());
+            if (mData.getSolvent() != null) {
+                solvent.addProperty(DC_11.title, mData.getSolvent().trim());
+            }
+            if (mData.getSolventSMILES() != null) {
+                solvent.addProperty(BO.smiles, mData.getSolventSMILES().trim());
+            }
             solvents.put(solventName, solvent);
             solventsProcessed++;
         }
