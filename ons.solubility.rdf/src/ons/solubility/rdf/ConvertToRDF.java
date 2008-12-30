@@ -20,6 +20,8 @@
  */
 package ons.solubility.rdf;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
@@ -169,14 +171,18 @@ public class ConvertToRDF {
         return result;
     }
 
-    public void write() {
+    public void write() throws Exception {
+        File outputFile = new File("ons.rdf");
+        FileOutputStream out = new FileOutputStream(outputFile);
+
         model.setNsPrefix("ons", ONS.NS);
         model.setNsPrefix("chem", BO.NS);
         try {
-            model.write(System.out, "N-TRIPLE");
+            model.write(out, "N-TRIPLE");
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+        out.close();
     }
 
     public static void main( String[] args ) throws Exception {
