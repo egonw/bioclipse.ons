@@ -79,6 +79,9 @@ public class ConvertToRDF {
         SolubilityData data = new SolubilityData(username, password);
         data.download();
         for (Measurement measurement : data.getData()) {
+            if (measurement.getExperiment().trim().equals("0")) continue;
+            if (measurement.getSolute().contains("DONOTUSE")) continue;
+
             createResource(measurement);
         }
     }
