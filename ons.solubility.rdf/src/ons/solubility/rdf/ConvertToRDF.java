@@ -184,7 +184,7 @@ public class ConvertToRDF {
         model.setNsPrefix("ons", ONS.NS);
         model.setNsPrefix("chem", BO.NS);
         try {
-            model.write(out, "N-TRIPLE");
+            model.write(out, "RDF/XML-ABBREV");
         } catch (Exception exception) {
             exception.printStackTrace();
         }
