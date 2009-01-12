@@ -124,7 +124,7 @@ public class ConvertToRDF {
                 String inchi = getInChI(SMILES);
                 if (inchi != null) {
                     solvent.addProperty(BO.inchi, inchi);
-                    solvent.addProperty(RDFS.isDefinedBy,
+                    solvent.addProperty(OWL.sameAs,
                             model.createResource(RON + inchi));
                 }
             }
