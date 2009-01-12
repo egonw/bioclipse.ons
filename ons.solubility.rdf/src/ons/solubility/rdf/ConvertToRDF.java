@@ -31,6 +31,7 @@ import net.sf.jniinchi.INCHI_RET;
 import ons.solubility.data.Measurement;
 import ons.solubility.data.SolubilityData;
 
+import org.dbpedia.rdf.ONS2DBPediaMappings;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.exception.InvalidSmilesException;
 import org.openscience.cdk.inchi.InChIGenerator;
@@ -43,6 +44,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.DC_11;
+import com.hp.hpl.jena.vocabulary.OWL;
 import com.hp.hpl.jena.vocabulary.RDF;
 import com.hp.hpl.jena.vocabulary.RDFS;
 
@@ -109,7 +111,12 @@ public class ConvertToRDF {
             solvent = model.createResource(ONS.NS + "solvent" + solventsProcessed);
             solvent.addProperty(RDF.type, ONS.Solvent);
             if (mData.getSolvent() != null) {
-                solvent.addProperty(DC_11.title, mData.getSolvent().trim());
+                solventName = solventName.trim();
+                solvent.addProperty(DC_11.title, solventName);
+                String dbpResource = ONS2DBPediaMappings.getDBPediaResource(solventName);
+                if (dbpResource != null) {
+                    solvent.addProperty(OWL.sameAs, model.createResource(dbpResource));
+                }
             }
             String SMILES = mData.getSolventSMILES().trim();
             if (SMILES != null) {

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:section xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">
+ </dbpprop:section></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:imagefile xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://upload.wikimedia.org/wikipedia/commons/8/80/Butan-1-ol-3D-vdW.png"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:imagefile xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://upload.wikimedia.org/wikipedia/commons/7/7c/Butan-1-ol-2D-skeletal.png"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><foaf:page xmlns:foaf="http://xmlns.com/foaf/0.1/" rdf:resource="http://en.wikipedia.org/wiki/N-Butanol"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:iupacname xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">Butan-1-ol</dbpprop:iupacname></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:section xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol/section7/Chembox_Hazards"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:imagename xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">1-Butanol: 3D space-filling structure</dbpprop:imagename></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:imagename xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">1-Butanol: skeletal structure</dbpprop:imagename></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:section xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol/section2/Chembox_Properties"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Butyric_alcohol"><dbpprop:redirect xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:abstract xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">n-Butanol or n-butyl alcohol (sometimes also called biobutanol when produced biologically), is a primary alcohol with a 4 carbon structure and the molecular formula of C4H10O. It belongs to the higher alcohols and branched-chain alcohols.</dbpprop:abstract></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-butanol"><dbpprop:redirect xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><rdfs:label xml:lang="en">N-Butanol</rdfs:label></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><rdf:type rdf:resource="http://dbpedia.org/ontology/Resource"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><foaf:depiction xmlns:foaf="http://xmlns.com/foaf/0.1/" rdf:resource="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Butan-1-ol-2D-skeletal.png/200px-Butan-1-ol-2D-skeletal.png"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><skos:subject xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:resource="http://dbpedia.org/resource/Category:Alcohols"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:sphrases xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">
+ 
+  }}</dbpprop:sphrases></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:wikiPageUsesTemplate xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/Template:chembox_new"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/1-butanol"><dbpprop:redirect xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:section xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol/section8/Chembox_Related"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><rdf:type rdf:resource="http://dbpedia.org/ontology/ChemicalCompound"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><owl:sameAs xmlns:owl="http://www.w3.org/2002/07/owl#" rdf:resource="http://rdf.freebase.com/ns/guid.9202a8c04000641f800000000861c2a8"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/1-Butanol"><dbpprop:redirect xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><foaf:name xmlns:foaf="http://xmlns.com/foaf/0.1/">Butanol</foaf:name></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><skos:subject xmlns:skos="http://www.w3.org/2004/02/skos/core#" rdf:resource="http://dbpedia.org/resource/Category:Alcohol_solvents"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:section xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol/section3/Chembox_Structure"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><foaf:img xmlns:foaf="http://xmlns.com/foaf/0.1/" rdf:resource="http://upload.wikimedia.org/wikipedia/commons/7/7c/Butan-1-ol-2D-skeletal.png"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:othernames xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">Butanol
+1-Butanol
+n-Butanol
+normal-Butanol
+Butyl alcohol
+Butyric alcohol
+Propylcarbinol</dbpprop:othernames></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><rdfs:comment xml:lang="en">n-Butanol or n-butyl alcohol (sometimes also called biobutanol when produced biologically), is a primary alcohol with a 4 carbon structure and the molecular formula of C4H10O. It belongs to the higher alcohols and branched-chain alcohols.</rdfs:comment></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:name xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">Butanol</dbpprop:name></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:section xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol/section1/Chembox_Identifiers"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:imagename xmlns:dbpprop="http://dbpedia.org/property/" xml:lang="en">1-Butanol: flat structure</dbpprop:imagename></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/Butan-1-ol"><dbpprop:redirect xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://dbpedia.org/resource/N-Butanol"/></rdf:Description>
+<rdf:Description rdf:about="http://dbpedia.org/resource/N-Butanol"><dbpprop:imagefile xmlns:dbpprop="http://dbpedia.org/property/" rdf:resource="http://upload.wikimedia.org/wikipedia/commons/4/4b/Butanol_flat_structure.png"/></rdf:Description>
+</rdf:RDF>
