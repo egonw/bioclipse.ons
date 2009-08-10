@@ -10,3 +10,4 @@ Bundle-ClassPath: jar/gdata-client-1.0.jar,
  jar/gdata-spreadsheet-1.0.jar,
  .
 Export-Package: ons.solubility.data
+Require-Bundle: javax.xml.bind;bundle-version="2.1.9"
