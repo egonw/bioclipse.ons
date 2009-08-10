@@ -11,6 +11,7 @@
  ******************************************************************************/
 package net.bioclipse.onssolubility.business;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 import net.bioclipse.core.ResourcePathTransformer;
@@ -46,6 +47,10 @@ public class SolubilityManager implements IBioclipseManager {
 
     public IFile downloadAsRDF(IFile file, IProgressMonitor monitor)
         throws BioclipseException {
+        if (file.exists()) {
+            throw new BioclipseException("File already exists!");
+        }
+
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         try {
             ConvertToRDF convertor = new ConvertToRDF();
@@ -55,6 +60,11 @@ public class SolubilityManager implements IBioclipseManager {
                 prefs.getString(PreferenceConstants.GOOGLE_PASSWORD)
             );
             convertor.write(output);
+            file.create(
+                new ByteArrayInputStream(output.toByteArray()),
+                false,
+                monitor
+            );
         } catch (Exception exception) {
             throw new BioclipseException(
                 "Error while creating the RDF.",
