@@ -23,6 +23,7 @@ package ons.solubility.rdf;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -198,7 +199,10 @@ public class ConvertToRDF {
     public void write() throws Exception {
         File outputFile = new File("ons.rdf");
         FileOutputStream out = new FileOutputStream(outputFile);
+        write(out);
+    }
 
+    public void write(OutputStream out) throws Exception {
         model.setNsPrefix("ons", ONS.NS);
         model.setNsPrefix("chem", BO.NS);
         try {
