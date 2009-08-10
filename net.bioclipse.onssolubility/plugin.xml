@@ -4,13 +4,23 @@
    <extension
          point="net.bioclipse.scripting.contribution">
       <scriptContribution
-            id="net.bioclipse.inchi.business.InChIManager"
+            id="net.bioclipse.onssolubility.business.SolubilityManagerFactory"
             service="net.bioclipse.onssolubility.business.SolubilityManagerFactory">
       </scriptContribution>
    </extension>
 
    <extension point="org.eclipse.help.toc">
       <toc file="toc.xml" primary="true"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page class="net.bioclipse.onssolubility.preferences.SolubilityPreferencePage"
+            id="net.bioclipse.onssolubility.preferences.SolubilityPreferencePage"
+            name="ONS Solubility Preferences">
+      </page>
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="net.bioclipse.onssolubility.preferences.PreferenceInitializer"/>
    </extension>
 
 </plugin>

@@ -16,10 +16,12 @@ import java.io.ByteArrayOutputStream;
 import net.bioclipse.core.ResourcePathTransformer;
 import net.bioclipse.core.business.BioclipseException;
 import net.bioclipse.managers.business.IBioclipseManager;
+import net.bioclipse.onssolubility.preferences.PreferenceConstants;
 import ons.solubility.rdf.ConvertToRDF;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Preferences;
 
 public class SolubilityManager implements IBioclipseManager {
 
@@ -47,7 +49,11 @@ public class SolubilityManager implements IBioclipseManager {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         try {
             ConvertToRDF convertor = new ConvertToRDF();
-            convertor.processData();
+            Preferences prefs = Activator.getDefault().getPluginPreferences();
+            convertor.processData(
+                prefs.getString(PreferenceConstants.GOOGLE_USERNAME),
+                prefs.getString(PreferenceConstants.GOOGLE_PASSWORD)
+            );
             convertor.write(output);
         } catch (Exception exception) {
             throw new BioclipseException(
