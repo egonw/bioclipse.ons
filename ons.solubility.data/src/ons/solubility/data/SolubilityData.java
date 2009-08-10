@@ -20,13 +20,12 @@
  */
 package ons.solubility.data;
 
+import java.net.URL;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gdata.client.spreadsheet.FeedURLFactory;
-import com.google.gdata.client.spreadsheet.SpreadsheetQuery;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.client.spreadsheet.WorksheetQuery;
 import com.google.gdata.data.spreadsheet.Cell;
@@ -37,10 +36,9 @@ import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 
-public class SolubilityData
-	{
+public class SolubilityData {
+
     private SpreadsheetService service;
-    private FeedURLFactory factory;
     
     private Map<Integer,Measurement> measurements;
     
@@ -49,23 +47,28 @@ public class SolubilityData
     	if(password==null) throw new NullPointerException("undefined password");
     	this.service = new SpreadsheetService("ons-solubility-javaclient");
     	this.service.setUserCredentials(username, password);
-    	this.factory = FeedURLFactory.getDefault();
     	this.measurements = new HashMap<Integer,Measurement>();
     }
     
-    public void download() throws Exception
-    	{
-        SpreadsheetQuery spreadsheetQuery 
-        = new SpreadsheetQuery(factory.getSpreadsheetsFeedUrl());
-        spreadsheetQuery.setTitleQuery("SolubilitesSum");
-        SpreadsheetFeed spreadsheetFeed = service.query(spreadsheetQuery, 
-                                                        SpreadsheetFeed.class);
-        List<SpreadsheetEntry> spreadsheets = spreadsheetFeed.getEntries();
-        if (spreadsheets.isEmpty()) {
-            throw new Exception("No spreadsheets with that name");
+    public void download() throws Exception {
+        URL metafeedUrl = new URL(
+            "http://spreadsheets.google.com/feeds/spreadsheets/private/full"
+        );
+        SpreadsheetFeed feed = service.getFeed(metafeedUrl, SpreadsheetFeed.class);
+        List<SpreadsheetEntry> spreadsheets = feed.getEntries();
+
+        SpreadsheetEntry spreadsheet = null;
+        for (int i = 0; i < spreadsheets.size(); i++) {
+            SpreadsheetEntry entry = spreadsheets.get(i);
+            System.out.println("spreadsheet: " + entry.getTitle().getPlainText());
+            if ("SolubilitiesSum".equals(entry.getTitle().getPlainText())) {
+                spreadsheet = entry;
+            }
         }
 
-        SpreadsheetEntry spreadsheet = spreadsheets.get(0);
+        if (spreadsheet == null) {
+            throw new Exception("No spreadsheets with the name: SolubilitiesSum");
+        }
         
         WorksheetQuery worksheetQuery
         = new WorksheetQuery(spreadsheet.getWorksheetFeedUrl());
