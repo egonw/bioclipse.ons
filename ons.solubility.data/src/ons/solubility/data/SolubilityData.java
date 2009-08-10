@@ -60,7 +60,6 @@ public class SolubilityData {
         SpreadsheetEntry spreadsheet = null;
         for (int i = 0; i < spreadsheets.size(); i++) {
             SpreadsheetEntry entry = spreadsheets.get(i);
-            System.out.println("spreadsheet: " + entry.getTitle().getPlainText());
             if ("SolubilitiesSum".equals(entry.getTitle().getPlainText())) {
                 spreadsheet = entry;
             }
