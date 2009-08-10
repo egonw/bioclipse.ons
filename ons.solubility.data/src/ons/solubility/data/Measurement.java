@@ -22,12 +22,9 @@ package ons.solubility.data;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 /**
  * Measurement
  */
-@XmlRootElement(name="Measurement",namespace=Measurement.NS)
 public class Measurement
 	implements Serializable
     {

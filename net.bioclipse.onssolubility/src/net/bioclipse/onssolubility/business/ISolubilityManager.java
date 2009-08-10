@@ -11,9 +11,17 @@
 package net.bioclipse.onssolubility.business;
 
 import net.bioclipse.core.PublishedClass;
+import net.bioclipse.core.PublishedMethod;
+import net.bioclipse.core.business.BioclipseException;
 import net.bioclipse.managers.business.IBioclipseManager;
 
 @PublishedClass ("Manager for accessing the ONS Solubility Data.")
 public interface ISolubilityManager extends IBioclipseManager {
 
+    @PublishedMethod(
+        methodSummary="Download the ONS Solubility data into a RDF file " +
+        		"with the given filename."
+    )
+    public String downloadAsRDF(String filename) throws BioclipseException;
+    
 }

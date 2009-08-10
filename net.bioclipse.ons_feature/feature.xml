@@ -33,13 +33,27 @@ is available at http://www.eclipse.org/legal/epl-v10.html
    </url>
 
    <requires>
+      <import feature="net.bioclipse.chemoinformatics_feature" version="2.1.0.v20090807"/>
       <import feature="net.bioclipse.rdf_feature" version="2.1.0.v20090807"/>
       <import feature="net.bioclipse.core_feature" version="2.1.0.v20090807"/>
-      <import feature="net.bioclipse.chemoinformatics_feature" version="2.1.0.v20090807"/>
    </requires>
 
    <plugin
          id="net.bioclipse.onssolubility"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ons.solubility.data"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="ons.solubility.rdf"
          download-size="0"
          install-size="0"
          version="0.0.0"

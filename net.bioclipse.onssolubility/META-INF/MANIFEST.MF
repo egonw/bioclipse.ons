@@ -8,7 +8,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  net.bioclipse.core,
  net.bioclipse.scripting,
- org.eclipse.core.resources
+ org.eclipse.core.resources,
+ ons.solubility.rdf
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bioclipse.onssolubility.business
 Bundle-Vendor: The Bioclipse Team

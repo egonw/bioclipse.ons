@@ -141,6 +141,7 @@
    <features>
       <feature id="net.bioclipse.ons_feature" version="2.1.0.v20090807"/>
       <feature id="net.bioclipse.platform_feature" version="2.1.0.v20090807"/>
+      <feature id="net.bioclipse.rdf_feature" version="2.1.0.v20090807"/>
    </features>
 
 </product>
