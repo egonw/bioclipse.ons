@@ -82,7 +82,10 @@ public class ConvertToRDF {
         userInfo.load(input);
         String username = userInfo.getProperty("username");
         String password = userInfo.getProperty("password");
-        
+        processData(username, password);
+    }
+
+    public void processData(String username, String password) throws Exception {
         SolubilityData data = new SolubilityData(username, password);
         data.download();
         for (Measurement measurement : data.getData()) {
