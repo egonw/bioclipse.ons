@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Open Notebook Science Solubility plugin
+Bundle-SymbolicName: net.bioclipse.onssolubility;singleton:=true
+Bundle-Version: 2.1.0.v20090807
+Bundle-Activator: net.bioclipse.onssolubility.business.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ net.bioclipse.core,
+ net.bioclipse.scripting,
+ org.eclipse.core.resources
+Bundle-ActivationPolicy: lazy
+Export-Package: net.bioclipse.onssolubility.business
+Bundle-Vendor: The Bioclipse Team
+Bundle-ClassPath: .
+Import-Package: org.apache.log4j

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="net.bioclipse.ons_feature"
+      label="Open Notebook Sciene Feature"
+      version="2.1.0.v20090807"
+      provider-name="The Bioclipse Team"
+      plugin="net.bioclipse.ons">
+
+   <copyright>
+      Copyright (c) 2009 The Bioclipse Project Team and others.
+All rights reserved.
+   </copyright>
+
+   <license url="http://www.eclipse.org/org/documents/epl-v10.php">
+      The feature contains plugins under various copyrights and licenses
+differnt from the feature itself. Among the licenses are: LGPL,
+Artistic License, and MIT. Please refer to the plugin documentation
+for details on this.
+This feature and the accompanying materials are made available
+under the terms of the Eclipse Public License v1.0 + exception,
+putting no constraints on choice of backend and/or license for
+creating plugins for Bioclipse; it is totally open for both open
+source plugins as well as commercial. The exception allows GPL
+plugins to be written and run in any combination with EPL licensed
+plugins, addressing incompatibility between the EPL and the GPL
+v.2.
+The Eclipse Public License accompanies this distribution, and
+is available at http://www.eclipse.org/legal/epl-v10.html
+   </license>
+
+   <url>
+      <discovery label="The CDK Homepage" url="http://cdk.sf.net"/>
+   </url>
+
+   <requires>
+      <import feature="net.bioclipse.rdf_feature" version="2.1.0.v20090807"/>
+      <import feature="net.bioclipse.core_feature" version="2.1.0.v20090807"/>
+      <import feature="net.bioclipse.chemoinformatics_feature" version="2.1.0.v20090807"/>
+   </requires>
+
+   <plugin
+         id="net.bioclipse.onssolubility"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
