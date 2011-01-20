@@ -35,8 +35,8 @@ import ons.solubility.data.SolubilityData;
 import org.dbpedia.rdf.ONS2DBPediaMappings;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.exception.InvalidSmilesException;
-import org.openscience.cdk.inchi.InChIGenerator;
-import org.openscience.cdk.inchi.InChIGeneratorFactory;
+import org.openscience.cdk.inchi.standard.InChIGenerator;
+import org.openscience.cdk.inchi.standard.InChIGeneratorFactory;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.nonotify.NoNotificationChemObjectBuilder;
 import org.openscience.cdk.smiles.SmilesParser;
@@ -73,7 +73,7 @@ public class ConvertToRDF {
         solventsProcessed = 0;
 
         smilesParser = new SmilesParser(NoNotificationChemObjectBuilder.getInstance());
-        inchiFactory = new InChIGeneratorFactory();
+        inchiFactory = InChIGeneratorFactory.getInstance();
     }
 
     public void processData() throws Exception {

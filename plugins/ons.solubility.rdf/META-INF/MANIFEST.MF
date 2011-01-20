@@ -14,9 +14,9 @@ Bundle-ClassPath: jar/commons-logging-1.1.1.jar,
 Export-Package: ons.solubility.rdf
 Require-Bundle: ons.solubility.data;bundle-version="0.0.1",
  org.openscience.cdk.core,
- org.openscience.cdk.inchi,
  org.openscience.cdk.interfaces,
  org.openscience.cdk.smiles,
  org.openscience.cdk.standard,
  org.openscience.cdk.nonotify,
- net.sf.jniinchi
+ org.openscience.cdk.sinchi,
+ net.bioclipse.jniinchi;bundle-version="0.7.0"
