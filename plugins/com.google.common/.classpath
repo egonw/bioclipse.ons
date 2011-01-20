@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry excluding="ons/solubility/ws/ONService.java|ons/solubility/ws/test/ONServiceTest.java" kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="jar/google-collect-1.0-rc2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

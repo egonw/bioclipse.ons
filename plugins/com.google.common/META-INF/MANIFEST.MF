@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Google Commons
+Bundle-SymbolicName: com.google.commons;singleton:=true
+Bundle-Version: 0.0.1
+Bundle-Vendor: Egon Willighagen
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ jar/google-collect-1.0-rc2.jar
+Export-Package: com.google.common.annotations,
+ com.google.common.base,
+ com.google.common.collect

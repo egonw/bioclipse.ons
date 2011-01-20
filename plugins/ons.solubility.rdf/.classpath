@@ -3,21 +3,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry excluding="ons/solubility/rdf/sparql/" kind="src" path="src"/>
-	<classpathentry kind="lib" path="jar/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="jar/icu4j_3_4.jar"/>
-	<classpathentry kind="lib" path="jar/iri.jar"/>
-	<classpathentry kind="lib" path="jar/jena.jar"/>
-	<classpathentry kind="lib" path="jar/xercesImpl.jar"/>
-	<classpathentry kind="lib" path="jar/antlr-2.7.5.jar"/>
-	<classpathentry kind="lib" path="jar/arq-extra.jar"/>
-	<classpathentry kind="lib" path="jar/arq.jar"/>
-	<classpathentry kind="lib" path="jar/concurrent.jar"/>
-	<classpathentry kind="lib" path="jar/json.jar"/>
-	<classpathentry kind="lib" path="jar/junit.jar"/>
-	<classpathentry kind="lib" path="jar/log4j-1.2.12.jar"/>
-	<classpathentry kind="lib" path="jar/lucene-core-2.3.1.jar"/>
-	<classpathentry kind="lib" path="jar/stax-api-1.0.jar"/>
-	<classpathentry kind="lib" path="jar/wstx-asl-3.0.0.jar"/>
-	<classpathentry kind="lib" path="jar/xml-apis.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/commons-logging-1.1.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/icu4j_3_4.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/iri.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/jena.jar"/>
+	<classpathentry exported="true" kind="lib" path="jar/xercesImpl.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
