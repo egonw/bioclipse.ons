@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="net.bioclipse.scripting.contribution">
+      <scriptContribution
+            id="net.bioclipse.google.business.GoogleManagerFactory"
+            service="net.bioclipse.google.business.GoogleManagerFactory">
+      </scriptContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.preferencePages">
+      <page class="net.bioclipse.google.preferences.GooglePreferencePage"
+            id="net.bioclipse.google.preferences.GooglePreferencePage"
+            name="Google Preferences">
+      </page>
+   </extension>
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="net.bioclipse.google.preferences.PreferenceInitializer"/>
+   </extension>
+
+</plugin>

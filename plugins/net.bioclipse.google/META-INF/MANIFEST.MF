@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Google plugin
+Bundle-SymbolicName: net.bioclipse.google;singleton:=true
+Bundle-Version: 2.5.0
+Bundle-Activator: net.bioclipse.google.business.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ net.bioclipse.core,
+ net.bioclipse.scripting,
+ org.eclipse.core.resources,
+ com.google.data,
+ com.google.commons
+Bundle-ActivationPolicy: lazy
+Export-Package: net.bioclipse.google.business
+Bundle-Vendor: The Bioclipse Team
+Bundle-ClassPath: .
+Import-Package: org.apache.log4j
