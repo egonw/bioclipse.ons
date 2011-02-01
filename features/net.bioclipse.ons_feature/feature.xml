@@ -32,6 +32,10 @@ is available at http://www.eclipse.org/legal/epl-v10.html
       <discovery label="The CDK Homepage" url="http://cdk.sf.net"/>
    </url>
 
+   <includes
+         id="net.bioclipse.google_feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="net.bioclipse.chemoinformatics_feature" version="2.1.0.v20090807"/>
       <import feature="net.bioclipse.rdf_feature" version="2.1.0.v20090807"/>
@@ -54,27 +58,6 @@ is available at http://www.eclipse.org/legal/epl-v10.html
 
    <plugin
          id="ons.solubility.rdf"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.google.commons"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="com.google.data"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="net.bioclipse.google"
          download-size="0"
          install-size="0"
          version="0.0.0"

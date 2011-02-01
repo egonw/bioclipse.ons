@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="net.bioclipse.google_feature"
+      label="Google Feature"
+      version="2.4.1.20110201"
+      provider-name="The Bioclipse Team"
+      plugin="net.bioclipse.google">
+
+   <copyright>
+      Copyright (c) 2011 The Bioclipse Project Team and others.
+All rights reserved.
+   </copyright>
+
+   <license url="http://www.eclipse.org/org/documents/epl-v10.php">
+      EPL License + exception for the Bioclipse code.
+   </license>
+
+   <requires>
+      <import feature="net.bioclipse.core_feature" version="2.4.0.20100709"/>
+   </requires>
+
+   <plugin
+         id="com.google.commons"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.google.data"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="net.bioclipse.google"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>
