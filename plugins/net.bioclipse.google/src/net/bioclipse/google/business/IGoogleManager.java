@@ -11,9 +11,18 @@
 package net.bioclipse.google.business;
 
 import net.bioclipse.core.PublishedClass;
+import net.bioclipse.core.PublishedMethod;
+import net.bioclipse.core.business.BioclipseException;
+import net.bioclipse.core.domain.StringMatrix;
 import net.bioclipse.managers.business.IBioclipseManager;
 
 @PublishedClass ("Manager for accessing the Google online services.")
 public interface IGoogleManager extends IBioclipseManager {
 
+	@PublishedMethod(
+	    params="String account, String password, String spreadsheet, String sheet",
+	    methodSummary="Download the data from a Google Spreadsheet as a StringMatrix object."
+	)
+	public StringMatrix downloadSpreadsheet(String account, String password, String spreadsheet, String sheet)
+	throws BioclipseException;
 }
