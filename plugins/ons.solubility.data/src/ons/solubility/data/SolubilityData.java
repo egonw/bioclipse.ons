@@ -46,6 +46,8 @@ public class SolubilityData {
         if(username==null) throw new NullPointerException("undefined username");
     	if(password==null) throw new NullPointerException("undefined password");
     	this.service = new SpreadsheetService("ons-solubility-javaclient");
+    	System.out.println("Google user name: " + username);
+    	System.out.println("Google user name: " + password);
     	this.service.setUserCredentials(username, password);
     	this.measurements = new HashMap<Integer,Measurement>();
     }

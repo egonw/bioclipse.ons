@@ -38,10 +38,6 @@ import ons.solubility.data.Measurement;
 import ons.solubility.data.SolubilityData;
 
 import org.dbpedia.rdf.ONS2DBPediaMappings;
-import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.inchi.InChIGeneratorFactory;
-import org.openscience.cdk.nonotify.NoNotificationChemObjectBuilder;
-import org.openscience.cdk.smiles.SmilesParser;
 
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -55,9 +51,6 @@ public class ConvertToRDF {
     
     private final String RON = "http://rdf.openmolecules.net/?";
 
-    private SmilesParser smilesParser;
-    private InChIGeneratorFactory inchiFactory;
-    
     private Model model;
     private int measurementsProcessed;
     private int solutesProcessed;
@@ -73,9 +66,6 @@ public class ConvertToRDF {
         solutes = new HashMap<String,Resource>();
         solutesProcessed = 0;
         solventsProcessed = 0;
-
-        smilesParser = new SmilesParser(NoNotificationChemObjectBuilder.getInstance());
-        inchiFactory = InChIGeneratorFactory.getInstance();
     }
 
     public void processData() throws Exception {

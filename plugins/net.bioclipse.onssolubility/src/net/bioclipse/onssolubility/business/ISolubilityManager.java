@@ -19,10 +19,10 @@ import net.bioclipse.managers.business.IBioclipseManager;
 public interface ISolubilityManager extends IBioclipseManager {
 
     @PublishedMethod(
-        params="String filename",
+        params="String filename, String account, String password",
         methodSummary="Download the ONS Solubility data into a RDF file " +
         		"with the given filename."
     )
-    public String downloadAsRDF(String filename) throws BioclipseException;
+    public String downloadAsRDF(String filename, String account, String password) throws BioclipseException;
     
 }
