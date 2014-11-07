@@ -28,16 +28,18 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
-import net.sf.jniinchi.INCHI_RET;
+import net.bioclipse.cdk.business.ICDKManager;
+import net.bioclipse.core.business.BioclipseException;
+import net.bioclipse.core.domain.IMolecule;
+import net.bioclipse.inchi.InChI;
+import net.bioclipse.inchi.business.Activator;
+import net.bioclipse.inchi.business.IInChIManager;
 import ons.solubility.data.Measurement;
 import ons.solubility.data.SolubilityData;
 
 import org.dbpedia.rdf.ONS2DBPediaMappings;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.exception.InvalidSmilesException;
-import org.openscience.cdk.inchi.standard.InChIGenerator;
-import org.openscience.cdk.inchi.standard.InChIGeneratorFactory;
-import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.inchi.InChIGeneratorFactory;
 import org.openscience.cdk.nonotify.NoNotificationChemObjectBuilder;
 import org.openscience.cdk.smiles.SmilesParser;
 
@@ -140,23 +142,19 @@ public class ConvertToRDF {
 
     private String getInChI(String SMILES) {
         try {
-            IAtomContainer container = smilesParser.parseSmiles(SMILES);
-            InChIGenerator inchiGenerator =
-                inchiFactory.getInChIGenerator(container);
-            INCHI_RET ret = inchiGenerator.getReturnStatus();
-            if (ret == INCHI_RET.WARNING) {
+        	ICDKManager cdk = net.bioclipse.cdk.business.Activator.getDefault().getJavaCDKManager();
+        	IMolecule container = cdk.fromSMILES(SMILES);
+            IInChIManager inchi = Activator.getDefault().getJavaInChIManager();
+            InChI inchiVal = inchi.generate(container);
+            if (inchiVal == InChI.FAILED_TO_CALCULATE) {
                 // InChI generated, but with warning message
-                System.out.println("InChI warning: " + inchiGenerator.getMessage());
-            } else if (ret != INCHI_RET.OKAY) {
-                // InChI generation failed
-                throw new CDKException("InChI failed: " + ret.toString()
-                                       + " [" + inchiGenerator.getMessage() + "]");
+                System.out.println("InChI failed to calculate");
             }
-            return inchiGenerator.getInchi();
-        } catch ( InvalidSmilesException e ) {
+            return inchiVal.getValue();
+        } catch (BioclipseException e) {
             System.out.println("Error in parsing SMILES: " + SMILES);
             // e.printStackTrace();
-        } catch ( CDKException e ) {
+        } catch (Exception e) {
             System.out.println("Error in creating InChI for SMILES: " + SMILES);
             // e.printStackTrace();
         }
