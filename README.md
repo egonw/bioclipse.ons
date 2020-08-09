@@ -1,5 +1,4 @@
-Open Noteboek Science Solubility Project
-----------------------------------------
+# Open Noteboek Science Solubility Project
 
 This is the software repository for the Open Notebook Science Challenge (more information at
 http://onschallenge.wikispaces.com/ ). The first round of this challenge calls upon groups or
